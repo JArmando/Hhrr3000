@@ -10,5 +10,8 @@ namespace Rrhh.Models
     {
         public ICollection<BasicCompetence> Competences { get; set; }
         public ICollection<Language> Languages { get; set; }
+        public ICollection<WorkExperience> WorkExperiences { get; set; }
+        public Guid? RecommendedById { get; set; }
+        public virtual Employee RecommendedBy { get; set; }
     }
 }

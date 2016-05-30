@@ -14,8 +14,12 @@ namespace Rrhh.Db
         public ResumeConfiguration()
         {
             Property(p => p.Id).HasColumnName("ResumeId");
+            Property(p => p.RecommendedById).IsOptional();
+
             HasOptional(p => p.Competences).WithMany();
             HasOptional(p => p.Languages).WithMany();
+            HasOptional(p => p.WorkExperiences).WithMany();
+
             ToTable("Resumes");
         }
     }

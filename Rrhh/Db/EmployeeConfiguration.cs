@@ -14,6 +14,10 @@ namespace Rrhh.Db
         {
             Property(p => p.Id).HasColumnName("EmployeeId");
             Property(p => p.HireDate);
+            Property(p => p.Salary).IsRequired();
+
+            HasRequired(p => p.Job);
+
             ToTable("Employees");
         }
     }

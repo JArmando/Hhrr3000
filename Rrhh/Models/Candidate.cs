@@ -10,5 +10,7 @@ namespace Rrhh.Models
     {
         public int? ResumeId { get; set; }
         public virtual Resume Resume { get; set; }
+        public decimal AspiringSalary { get; set; }
+        public JobOffer JobOfferAspiration { get; set; }
     }
 }
