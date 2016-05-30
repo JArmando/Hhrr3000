@@ -13,16 +13,17 @@ namespace Rrhh.Views.Candidates
 {
     public partial class ListCandidates : Form
     {
-        public ListCandidates()
+        private CandidatesController Controller { get; }
+        public ListCandidates(CandidatesController controller)
         {
             InitializeComponent();
             LoadCandidates();
+            Controller = controller;
         }
 
         public void LoadCandidates()
         {
-            var controller = new CandidatesController();
-            CandidatesGrid.DataSource = controller.ListCandidates();
+            CandidatesGrid.DataSource = Controller.ListCandidates();
         }
     }
 }

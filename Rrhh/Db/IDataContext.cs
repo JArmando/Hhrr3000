@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rrhh.Models
+namespace Rrhh.Db
 {
-    public class BasicCompetence : Competence
+    interface IDataContext
     {
-        public virtual ICollection<Resume> Resumes { get; set; }
     }
 }

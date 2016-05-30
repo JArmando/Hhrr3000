@@ -10,14 +10,14 @@ namespace Rrhh.Controllers
 {
     public class CandidatesController
     {
-        private RrhhContext Context { get; }
+        public RrhhContext Context { get; }
 
-        public CandidatesController()
+        public CandidatesController(RrhhContext context)
         {
-            Context = new RrhhContext();
+            Context = context;
         }
 
-        public bool AddCandidate(string firstName, string lastName, string email, string phoneNumber, Resume resume)
+        public bool Create(string firstName, string lastName, string email, string phoneNumber, Resume resume)
         {
             Context.Candidates.Add(new Candidate
             {

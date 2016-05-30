@@ -14,5 +14,6 @@ namespace Rrhh.Models
         public string JobPosition { get; set; }
         public string Description { get; set; }
         public decimal Salary { get; set; }
+        public virtual ICollection<Resume> Resumes { get; set; }
     }
 }

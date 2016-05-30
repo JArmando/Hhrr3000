@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Rrhh.Properties;
 using Rrhh.Views;
 using Rrhh.Views.Candidates;
+using Rrhh.Views.Home;
 using Rrhh.Views.JobOffers;
 using Rrhh.Views.Resumes;
 
@@ -22,7 +23,7 @@ namespace Rrhh
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new NewJobOffer());
-            Application.Run(new NewCandidate());
+            Application.Run(new HomeView());
         }
     }
 }
