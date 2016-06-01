@@ -20,13 +20,14 @@ namespace Rrhh.Views.Home
 
         private void AddNewCandidateBtn_Click(object sender, EventArgs e)
         {
-            var dialog = new NewCandidateView(new CandidatesController(Controller.Context));
-            DisplayInBox(dialog);
+            var view = new NewCandidateView(new CandidatesController(Controller.Context));
+            NavigateTo(view);
         }
 
         private void ListCandidatesBtn_Click(object sender, EventArgs e)
         {
-            var dialog = new NewCandidateView(new CandidatesController(Controller.Context));
+            var view = new ListCandidates(new CandidatesController(Controller.Context));
+            NavigateTo(view);
         }
 
         private void DisplayInBox(Form control)
@@ -37,5 +38,16 @@ namespace Rrhh.Views.Home
             control.Dock = DockStyle.Fill;
             control.Show();
         }
+
+        private void NavigateTo(Form view)
+        {
+            view.TopLevel = false;
+            view.FormBorderStyle = FormBorderStyle.None;
+            TheBox.Controls.Clear();
+            TheBox.Controls.Add(view);
+            view.Dock = DockStyle.Top;
+            view.Show();
+        }
+
     }
 }

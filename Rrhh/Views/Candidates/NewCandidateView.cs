@@ -25,7 +25,9 @@ namespace Rrhh.Views
             var lastName = LastNameTxtBox.Text;
             var phone = PhoneNumberTxtBox.Text;
             var email = EmailTxtBox.Text;
-            Controller.Create(firstName, lastName, email, phone, Resume);
+            var governmentIssuedId = SocialIdTxtBox.Text;
+            var aspiringSalary = decimal.Parse(aspiringSalaryTxtBox.Text);
+            Controller.New(firstName, lastName, governmentIssuedId, email, phone, aspiringSalary, Resume);
         }
 
         private void AttachResumeBtn_Click(object sender, EventArgs e)

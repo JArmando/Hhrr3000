@@ -34,8 +34,9 @@
             this.AddNewCandidateBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.ListCandidatesBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.batidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seMatoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmployeeNewToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.TheBox = new System.Windows.Forms.GroupBox();
+            this.EmployeeListToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.topMenu.SuspendLayout();
             this.SuspendLayout();
             // 

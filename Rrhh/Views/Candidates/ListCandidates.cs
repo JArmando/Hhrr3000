@@ -17,8 +17,8 @@ namespace Rrhh.Views.Candidates
         public ListCandidates(CandidatesController controller)
         {
             InitializeComponent();
-            LoadCandidates();
             Controller = controller;
+            LoadCandidates();
         }
 
         public void LoadCandidates()

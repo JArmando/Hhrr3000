@@ -17,18 +17,33 @@ namespace Rrhh.Controllers
             Context = context;
         }
 
-        public bool Create(string firstName, string lastName, string email, string phoneNumber, Resume resume)
+        public Candidate New(string firstName, string lastName, string governmentIssuedId, string email,
+            string phoneNumber, decimal aspiringSalary)
         {
-            Context.Candidates.Add(new Candidate
+            return new Candidate
             {
                 FirstName = firstName,
                 LastName = lastName,
                 Email = email,
                 Phone = phoneNumber,
-                Resume = resume
-            });
+                GovernmentIssuedId = governmentIssuedId,
+            };
+        }
+
+        public Candidate New(string firstName, string lastName, string governmentIssuedId, string email,
+            string phoneNumber, decimal aspiringSalary, Resume resume, JobOffer jobOffer = null)
+        {
+            var newCandidate = New(firstName, lastName, governmentIssuedId, email, phoneNumber, aspiringSalary);
+            newCandidate.JobOfferAspiration = jobOffer ?? new JobOffer();
+            newCandidate.Resume = resume ?? new Resume();
+            return Create(newCandidate);
+        }
+
+        public Candidate Create(Candidate candidate)
+        {
+            Context.Candidates.Add(candidate);
             Context.SaveChanges();
-            return true;
+            return candidate;
         }
 
         public IEnumerable<Candidate> ListCandidates()

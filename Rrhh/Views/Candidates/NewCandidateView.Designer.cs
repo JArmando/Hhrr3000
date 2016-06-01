@@ -38,12 +38,16 @@
             this.PhoneNumberTxtBox = new System.Windows.Forms.TextBox();
             this.AddCandidateBtn = new System.Windows.Forms.Button();
             this.AttachResumeBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.SocialIdTxtBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.aspiringSalaryTxtBox = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // FirstNameLbl
             // 
             this.FirstNameLbl.AutoSize = true;
-            this.FirstNameLbl.Location = new System.Drawing.Point(52, 102);
+            this.FirstNameLbl.Location = new System.Drawing.Point(30, 29);
             this.FirstNameLbl.Name = "FirstNameLbl";
             this.FirstNameLbl.Size = new System.Drawing.Size(57, 13);
             this.FirstNameLbl.TabIndex = 0;
@@ -51,7 +55,7 @@
             // 
             // FirstNameTxtBox
             // 
-            this.FirstNameTxtBox.Location = new System.Drawing.Point(133, 95);
+            this.FirstNameTxtBox.Location = new System.Drawing.Point(111, 22);
             this.FirstNameTxtBox.Name = "FirstNameTxtBox";
             this.FirstNameTxtBox.Size = new System.Drawing.Size(100, 20);
             this.FirstNameTxtBox.TabIndex = 1;
@@ -59,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 128);
+            this.label1.Location = new System.Drawing.Point(30, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 2;
@@ -67,7 +71,7 @@
             // 
             // LastNameTxtBox
             // 
-            this.LastNameTxtBox.Location = new System.Drawing.Point(133, 121);
+            this.LastNameTxtBox.Location = new System.Drawing.Point(111, 48);
             this.LastNameTxtBox.Name = "LastNameTxtBox";
             this.LastNameTxtBox.Size = new System.Drawing.Size(100, 20);
             this.LastNameTxtBox.TabIndex = 3;
@@ -75,7 +79,7 @@
             // Email
             // 
             this.Email.AutoSize = true;
-            this.Email.Location = new System.Drawing.Point(52, 154);
+            this.Email.Location = new System.Drawing.Point(30, 81);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(32, 13);
             this.Email.TabIndex = 4;
@@ -83,7 +87,7 @@
             // 
             // EmailTxtBox
             // 
-            this.EmailTxtBox.Location = new System.Drawing.Point(133, 147);
+            this.EmailTxtBox.Location = new System.Drawing.Point(111, 74);
             this.EmailTxtBox.Name = "EmailTxtBox";
             this.EmailTxtBox.Size = new System.Drawing.Size(100, 20);
             this.EmailTxtBox.TabIndex = 5;
@@ -91,7 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(52, 183);
+            this.label2.Location = new System.Drawing.Point(30, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 13);
             this.label2.TabIndex = 6;
@@ -99,14 +103,14 @@
             // 
             // PhoneNumberTxtBox
             // 
-            this.PhoneNumberTxtBox.Location = new System.Drawing.Point(133, 176);
+            this.PhoneNumberTxtBox.Location = new System.Drawing.Point(111, 103);
             this.PhoneNumberTxtBox.Name = "PhoneNumberTxtBox";
             this.PhoneNumberTxtBox.Size = new System.Drawing.Size(100, 20);
             this.PhoneNumberTxtBox.TabIndex = 7;
             // 
             // AddCandidateBtn
             // 
-            this.AddCandidateBtn.Location = new System.Drawing.Point(133, 211);
+            this.AddCandidateBtn.Location = new System.Drawing.Point(111, 182);
             this.AddCandidateBtn.Name = "AddCandidateBtn";
             this.AddCandidateBtn.Size = new System.Drawing.Size(100, 23);
             this.AddCandidateBtn.TabIndex = 8;
@@ -116,7 +120,7 @@
             // 
             // AttachResumeBtn
             // 
-            this.AttachResumeBtn.Location = new System.Drawing.Point(298, 95);
+            this.AttachResumeBtn.Location = new System.Drawing.Point(276, 22);
             this.AttachResumeBtn.Name = "AttachResumeBtn";
             this.AttachResumeBtn.Size = new System.Drawing.Size(203, 139);
             this.AttachResumeBtn.TabIndex = 9;
@@ -124,11 +128,48 @@
             this.AttachResumeBtn.UseVisualStyleBackColor = true;
             this.AttachResumeBtn.Click += new System.EventHandler(this.AttachResumeBtn_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(30, 136);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Social ID";
+            // 
+            // SocialIdTxtBox
+            // 
+            this.SocialIdTxtBox.Location = new System.Drawing.Point(111, 129);
+            this.SocialIdTxtBox.Name = "SocialIdTxtBox";
+            this.SocialIdTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.SocialIdTxtBox.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 162);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Aspiring Salary";
+            // 
+            // aspiringSalaryTxtBox
+            // 
+            this.aspiringSalaryTxtBox.Location = new System.Drawing.Point(111, 156);
+            this.aspiringSalaryTxtBox.Mask = "00000000";
+            this.aspiringSalaryTxtBox.Name = "aspiringSalaryTxtBox";
+            this.aspiringSalaryTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.aspiringSalaryTxtBox.TabIndex = 13;
+            // 
             // NewCandidateView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 503);
+            this.ClientSize = new System.Drawing.Size(506, 286);
+            this.Controls.Add(this.aspiringSalaryTxtBox);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.SocialIdTxtBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.AttachResumeBtn);
             this.Controls.Add(this.AddCandidateBtn);
             this.Controls.Add(this.FirstNameLbl);
@@ -158,5 +199,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox FirstNameTxtBox;
         private System.Windows.Forms.Label FirstNameLbl;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox SocialIdTxtBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox aspiringSalaryTxtBox;
     }
 }
