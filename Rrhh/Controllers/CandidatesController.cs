@@ -48,7 +48,7 @@ namespace Rrhh.Controllers
 
         public IEnumerable<Candidate> ListCandidates()
         {
-            return Context.Candidates.ToList();
+            return Context.Candidates;
         }
     }
 }

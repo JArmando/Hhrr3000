@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CandidatesController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Db\AcademicCompetenceConfiguration.cs" />
     <Compile Include="Db\CandidateConfiguration.cs" />
@@ -139,6 +140,18 @@
     <Compile Include="Views\Competences\NewCompetence.Designer.cs">
       <DependentUpon>NewCompetence.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Employees\ListEmployeesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Employees\ListEmployeesView.Designer.cs">
+      <DependentUpon>ListEmployeesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employees\NewEmployeeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Employees\NewEmployeeView.Designer.cs">
+      <DependentUpon>NewEmployeeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home\HomeView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +202,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Competences\NewCompetence.resx">
       <DependentUpon>NewCompetence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Employees\ListEmployeesView.resx">
+      <DependentUpon>ListEmployeesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Employees\NewEmployeeView.resx">
+      <DependentUpon>NewEmployeeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home\HomeView.resx">
       <DependentUpon>HomeView.cs</DependentUpon>

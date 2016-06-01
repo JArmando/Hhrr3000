@@ -1,42 +1,46 @@
 ﻿using System;
 using System.Windows.Forms;
 using Rrhh.Controllers;
+using Rrhh.Migrations;
 using Rrhh.Views.Candidates;
+using Rrhh.Views.Employees;
 
 namespace Rrhh.Views.Home
 {
     public partial class HomeView : Form
     {
-        private HomePresenter Presenter { get; }
+        
         private HomeController Controller { get; }
+        private RrhhContext Context => Controller.Context;
+        private HomePresenter Presenter => Controller.Presenter;
 
         public HomeView(HomeController controller = null)
         {
             InitializeComponent();
             Controller = controller?? new HomeController();
-
-            Presenter = Controller.Presenter;
         }
 
         private void AddNewCandidateBtn_Click(object sender, EventArgs e)
         {
-            var view = new NewCandidateView(new CandidatesController(Controller.Context));
+            var view = new NewCandidateView(new CandidatesController(Context));
             NavigateTo(view);
         }
 
         private void ListCandidatesBtn_Click(object sender, EventArgs e)
         {
-            var view = new ListCandidates(new CandidatesController(Controller.Context));
+            var view = new ListCandidates(new CandidatesController(Context));
             NavigateTo(view);
         }
 
-        private void DisplayInBox(Form control)
+        private void EmployeeNewToolStrip_Click(object sender, EventArgs e)
         {
-            control.TopLevel = false;
-            control.FormBorderStyle = FormBorderStyle.None;
-            TheBox.Controls.Add(control);
-            control.Dock = DockStyle.Fill;
-            control.Show();
+            var view = new NewEmployeeView(new EmployeesController(Context));
+            NavigateTo(view);
+        }
+        private void EmployeeListToolStrip_Click(object sender, EventArgs e)
+        {
+            var view = new ListEmployeesView(new EmployeesController(Context));
+            NavigateTo(view);
         }
 
         private void NavigateTo(Form view)
@@ -48,6 +52,7 @@ namespace Rrhh.Views.Home
             view.Dock = DockStyle.Top;
             view.Show();
         }
+
 
     }
 }

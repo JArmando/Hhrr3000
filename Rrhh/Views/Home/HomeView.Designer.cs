@@ -71,39 +71,51 @@
             // AddNewCandidateBtn
             // 
             this.AddNewCandidateBtn.Name = "AddNewCandidateBtn";
-            this.AddNewCandidateBtn.Size = new System.Drawing.Size(152, 22);
+            this.AddNewCandidateBtn.Size = new System.Drawing.Size(121, 22);
             this.AddNewCandidateBtn.Text = "Add new";
             this.AddNewCandidateBtn.Click += new System.EventHandler(this.AddNewCandidateBtn_Click);
             // 
             // ListCandidatesBtn
             // 
             this.ListCandidatesBtn.Name = "ListCandidatesBtn";
-            this.ListCandidatesBtn.Size = new System.Drawing.Size(152, 22);
+            this.ListCandidatesBtn.Size = new System.Drawing.Size(121, 22);
             this.ListCandidatesBtn.Text = "List";
             this.ListCandidatesBtn.Click += new System.EventHandler(this.ListCandidatesBtn_Click);
             // 
             // batidaToolStripMenuItem
             // 
             this.batidaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seMatoToolStripMenuItem});
+            this.EmployeeNewToolStrip,
+            this.EmployeeListToolStrip});
             this.batidaToolStripMenuItem.Name = "batidaToolStripMenuItem";
-            this.batidaToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.batidaToolStripMenuItem.Text = "batida";
+            this.batidaToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.batidaToolStripMenuItem.Text = "Employees";
             // 
-            // seMatoToolStripMenuItem
+            // EmployeeNewToolStrip
             // 
-            this.seMatoToolStripMenuItem.Name = "seMatoToolStripMenuItem";
-            this.seMatoToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.seMatoToolStripMenuItem.Text = "se mato";
+            this.EmployeeNewToolStrip.Name = "EmployeeNewToolStrip";
+            this.EmployeeNewToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.EmployeeNewToolStrip.Text = "Create new";
+            this.EmployeeNewToolStrip.Click += new System.EventHandler(this.EmployeeNewToolStrip_Click);
             // 
             // TheBox
             // 
-            this.TheBox.Location = new System.Drawing.Point(22, 51);
+            this.TheBox.AutoSize = true;
+            this.TheBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TheBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TheBox.Location = new System.Drawing.Point(0, 48);
             this.TheBox.Name = "TheBox";
-            this.TheBox.Size = new System.Drawing.Size(855, 443);
+            this.TheBox.Size = new System.Drawing.Size(903, 486);
             this.TheBox.TabIndex = 2;
             this.TheBox.TabStop = false;
             this.TheBox.Text = "TheBox";
+            // 
+            // EmployeeListToolStrip
+            // 
+            this.EmployeeListToolStrip.Name = "EmployeeListToolStrip";
+            this.EmployeeListToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.EmployeeListToolStrip.Text = "List";
+            this.EmployeeListToolStrip.Click += new System.EventHandler(this.EmployeeListToolStrip_Click);
             // 
             // HomeView
             // 
@@ -132,7 +144,8 @@
         private System.Windows.Forms.ToolStripMenuItem ListCandidatesBtn;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem batidaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem seMatoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EmployeeNewToolStrip;
         private System.Windows.Forms.GroupBox TheBox;
+        private System.Windows.Forms.ToolStripMenuItem EmployeeListToolStrip;
     }
 }
