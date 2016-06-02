@@ -11,7 +11,7 @@ namespace Rrhh.Db
             Property(p => p.RecommendedById).IsOptional();
 
             HasMany(p => p.Competences).WithMany();
-            HasMany(p => p.Languages).WithMany();
+            HasMany(p => p.Languages).WithOptional();
             HasMany(p => p.WorkExperiences).WithMany();
 
             ToTable("Resumes");

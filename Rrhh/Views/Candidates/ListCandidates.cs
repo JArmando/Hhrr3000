@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rrhh.Controllers;
+using Rrhh.Models;
 
 namespace Rrhh.Views.Candidates
 {
@@ -23,7 +24,17 @@ namespace Rrhh.Views.Candidates
 
         public void LoadCandidates()
         {
-            CandidatesGrid.DataSource = Controller.ListCandidates();
+            CandidatesGrid.DataSource = Controller.ListCandidates().ToList();
+        }
+
+        private void HireBtn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow selectedRow in CandidatesGrid.SelectedRows)
+            {
+                Controller.Hire(selectedRow.DataBoundItem as Candidate);
+            }
+            Controller.SaveChanges();
+            //notify that the candidates were hired and get out of this view
         }
     }
 }

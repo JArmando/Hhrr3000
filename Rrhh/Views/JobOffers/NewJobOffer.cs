@@ -12,9 +12,10 @@ namespace Rrhh.Views.JobOffers
 {
     public partial class NewJobOffer : Form
     {
-        public NewJobOffer()
+        public NewJobOffer(JobOfferController controller)
         {
             InitializeComponent();
+            Controller = controller;
             LoadData();
         }
 

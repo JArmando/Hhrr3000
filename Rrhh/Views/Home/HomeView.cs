@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Views.Candidates;
 using Rrhh.Views.Employees;
+using Rrhh.Views.JobOffers;
 
 namespace Rrhh.Views.Home
 {
-    public partial class HomeView : Form
+    public partial class HomeView : BaseView
     {
         
         private HomeController Controller { get; }
@@ -22,7 +25,7 @@ namespace Rrhh.Views.Home
 
         private void AddNewCandidateBtn_Click(object sender, EventArgs e)
         {
-            var view = new NewCandidateView(new CandidatesController(Context));
+            var view = new NewCandidateView(ViewContext, new CandidatesController(Context));
             NavigateTo(view);
         }
 
@@ -49,10 +52,20 @@ namespace Rrhh.Views.Home
             view.FormBorderStyle = FormBorderStyle.None;
             TheBox.Controls.Clear();
             TheBox.Controls.Add(view);
-            view.Dock = DockStyle.Top;
+            view.Dock = DockStyle.Bottom;
             view.Show();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InfoBox.Text = string.Join("\n", ViewContext.Errors);
+        }
 
+        private void createJobOfferToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var view = new NewJobOffer();
+            NavigateTo(view);
+        }
     }
+
 }

@@ -35,9 +35,15 @@
             this.ListCandidatesBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.batidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmployeeNewToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.TheBox = new System.Windows.Forms.GroupBox();
             this.EmployeeListToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.TheBox = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.InfoBox = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.jobOffersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createJobOfferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -52,7 +58,8 @@
             // 
             this.topMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainCandidatesMenu,
-            this.batidaToolStripMenuItem});
+            this.batidaToolStripMenuItem,
+            this.jobOffersToolStripMenuItem});
             this.topMenu.Location = new System.Drawing.Point(0, 0);
             this.topMenu.Name = "topMenu";
             this.topMenu.Size = new System.Drawing.Size(903, 24);
@@ -94,34 +101,78 @@
             // EmployeeNewToolStrip
             // 
             this.EmployeeNewToolStrip.Name = "EmployeeNewToolStrip";
-            this.EmployeeNewToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.EmployeeNewToolStrip.Size = new System.Drawing.Size(133, 22);
             this.EmployeeNewToolStrip.Text = "Create new";
             this.EmployeeNewToolStrip.Click += new System.EventHandler(this.EmployeeNewToolStrip_Click);
+            // 
+            // EmployeeListToolStrip
+            // 
+            this.EmployeeListToolStrip.Name = "EmployeeListToolStrip";
+            this.EmployeeListToolStrip.Size = new System.Drawing.Size(133, 22);
+            this.EmployeeListToolStrip.Text = "List";
+            this.EmployeeListToolStrip.Click += new System.EventHandler(this.EmployeeListToolStrip_Click);
             // 
             // TheBox
             // 
             this.TheBox.AutoSize = true;
             this.TheBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.TheBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TheBox.Location = new System.Drawing.Point(0, 48);
+            this.TheBox.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TheBox.Location = new System.Drawing.Point(0, 529);
             this.TheBox.Name = "TheBox";
-            this.TheBox.Size = new System.Drawing.Size(903, 486);
+            this.TheBox.Size = new System.Drawing.Size(903, 5);
             this.TheBox.TabIndex = 2;
             this.TheBox.TabStop = false;
             this.TheBox.Text = "TheBox";
             // 
-            // EmployeeListToolStrip
+            // panel1
             // 
-            this.EmployeeListToolStrip.Name = "EmployeeListToolStrip";
-            this.EmployeeListToolStrip.Size = new System.Drawing.Size(152, 22);
-            this.EmployeeListToolStrip.Text = "List";
-            this.EmployeeListToolStrip.Click += new System.EventHandler(this.EmployeeListToolStrip_Click);
+            this.panel1.Controls.Add(this.InfoBox);
+            this.panel1.Location = new System.Drawing.Point(0, 38);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(246, 110);
+            this.panel1.TabIndex = 3;
+            // 
+            // InfoBox
+            // 
+            this.InfoBox.BackColor = System.Drawing.SystemColors.Control;
+            this.InfoBox.Location = new System.Drawing.Point(3, 3);
+            this.InfoBox.Name = "InfoBox";
+            this.InfoBox.Size = new System.Drawing.Size(240, 104);
+            this.InfoBox.TabIndex = 0;
+            this.InfoBox.Text = "";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(252, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // jobOffersToolStripMenuItem
+            // 
+            this.jobOffersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createJobOfferToolStripMenuItem});
+            this.jobOffersToolStripMenuItem.Name = "jobOffersToolStripMenuItem";
+            this.jobOffersToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.jobOffersToolStripMenuItem.Text = "Job Offers";
+            // 
+            // createJobOfferToolStripMenuItem
+            // 
+            this.createJobOfferToolStripMenuItem.Name = "createJobOfferToolStripMenuItem";
+            this.createJobOfferToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.createJobOfferToolStripMenuItem.Text = "Create Job Offer";
+            this.createJobOfferToolStripMenuItem.Click += new System.EventHandler(this.createJobOfferToolStripMenuItem_Click);
             // 
             // HomeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 534);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.TheBox);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.topMenu);
@@ -130,6 +181,7 @@
             this.Text = "HomeView";
             this.topMenu.ResumeLayout(false);
             this.topMenu.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +199,10 @@
         private System.Windows.Forms.ToolStripMenuItem EmployeeNewToolStrip;
         private System.Windows.Forms.GroupBox TheBox;
         private System.Windows.Forms.ToolStripMenuItem EmployeeListToolStrip;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox InfoBox;
+        private System.Windows.Forms.ToolStripMenuItem jobOffersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createJobOfferToolStripMenuItem;
     }
 }

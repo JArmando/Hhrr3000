@@ -1,22 +1,25 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Models;
+using Rrhh.Views.Home;
 using Rrhh.Views.Resumes;
 
 namespace Rrhh.Views
 {
-    public partial class NewCandidateView : Form
+    public partial class NewCandidateView : BaseView
     {
         public Candidate Candidate { get; set; }
         private Resume Resume { get; set; }
         private CandidatesController Controller { get; }
         
-        public NewCandidateView(CandidatesController controller)
+        public NewCandidateView(ViewContext viewContext, CandidatesController controller)
         {
             InitializeComponent();
             Controller = controller;
             AddCandidateBtn.Enabled = false;
+            ViewContext = viewContext;
         }
 
         private void AddCandidateBtn_Click(object sender, EventArgs e)
@@ -27,7 +30,8 @@ namespace Rrhh.Views
             var email = EmailTxtBox.Text;
             var governmentIssuedId = SocialIdTxtBox.Text;
             var aspiringSalary = decimal.Parse(aspiringSalaryTxtBox.Text);
-            Controller.New(firstName, lastName, governmentIssuedId, email, phone, aspiringSalary, Resume);
+            var candidate = Controller.New(firstName, lastName, governmentIssuedId, email, phone, aspiringSalary, Resume);
+            ViewContext.Errors.AddRange(candidate.Errors.Select(x => x.ErrorMessage));
         }
 
         private void AttachResumeBtn_Click(object sender, EventArgs e)

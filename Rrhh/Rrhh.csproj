@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201605302039338_RelateCompetencesToResume.Designer.cs">
       <DependentUpon>201605302039338_RelateCompetencesToResume.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606011810298_updatingrelationship.cs" />
+    <Compile Include="Migrations\201606011810298_updatingrelationship.Designer.cs">
+      <DependentUpon>201606011810298_updatingrelationship.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicCompetence.cs" />
     <Compile Include="Models\Competence.cs" />
@@ -122,6 +126,9 @@
     <Compile Include="Models\WorkExperience.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\BaseView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\Candidates\ListCandidates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605302039338_RelateCompetencesToResume.resx">
       <DependentUpon>201605302039338_RelateCompetencesToResume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606011810298_updatingrelationship.resx">
+      <DependentUpon>201606011810298_updatingrelationship.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

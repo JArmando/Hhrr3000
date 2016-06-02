@@ -17,8 +17,24 @@ namespace Rrhh.Models
         public DateTime? CreatedDate { get; set; }
         public DateTime? LastModifiedDate { get; set; }
         public bool IsActive { get; set; }
-    }
 
+        public ICollection<ValidationResult> Errors = new List<ValidationResult>();
+
+        public bool IsValid()
+        {
+            Validate();
+            return !Errors.Any();
+        }
+
+        public IEnumerable<ValidationResult> Validate()
+        {
+            Errors = new List<ValidationResult>();
+            var validationContext = new ValidationContext(this, null, null);
+            var vResult = new List<ValidationResult>();
+            Validator.TryValidateObject(this, validationContext, Errors, true);
+            return vResult;
+        }
+    }
     public static class DbSetExtension
     {
         public static IQueryable<BaseModel> Active(this IQueryable<BaseModel> query)
@@ -26,4 +42,20 @@ namespace Rrhh.Models
             return query.Where(x => x.IsActive);
         }
     }
+
 }
+
+    //public class ModelError
+    //{
+    //    public string PropertyName { get; }
+    //    public string Message { get; }
+
+    //    public ModelError(string propertyName, string message)
+    //    {
+    //        PropertyName = propertyName;
+    //        Message = message;
+    //    }
+    //}
+
+
+

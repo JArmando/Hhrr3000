@@ -34,17 +34,21 @@
             // 
             // EmployeeList
             // 
+            this.EmployeeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.EmployeeList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.EmployeeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EmployeeList.Location = new System.Drawing.Point(55, 75);
+            this.EmployeeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EmployeeList.Location = new System.Drawing.Point(0, 0);
             this.EmployeeList.Name = "EmployeeList";
-            this.EmployeeList.Size = new System.Drawing.Size(503, 174);
+            this.EmployeeList.ReadOnly = true;
+            this.EmployeeList.Size = new System.Drawing.Size(633, 407);
             this.EmployeeList.TabIndex = 0;
             // 
             // ListEmployeesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 315);
+            this.ClientSize = new System.Drawing.Size(633, 407);
             this.Controls.Add(this.EmployeeList);
             this.Name = "ListEmployeesView";
             this.Text = "ListEmployeesView";
