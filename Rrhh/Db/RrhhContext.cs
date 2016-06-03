@@ -14,8 +14,10 @@ namespace Rrhh.Migrations
     {
         public DbSet<Person> People { get; set; }
         public DbSet<Candidate> Candidates { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<BasicCompetence> Competences { get; set; }
+        public DbSet<Job> Jobs { get; set; }
         public DbSet<JobOffer> JobOffers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

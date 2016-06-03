@@ -31,7 +31,7 @@ namespace Rrhh.Views
             var governmentIssuedId = SocialIdTxtBox.Text;
             var aspiringSalary = decimal.Parse(aspiringSalaryTxtBox.Text);
             var candidate = Controller.New(firstName, lastName, governmentIssuedId, email, phone, aspiringSalary, Resume);
-            ViewContext.Errors.AddRange(candidate.Errors.Select(x => x.ErrorMessage));
+            ViewContext.AddErrors(candidate);
         }
 
         private void AttachResumeBtn_Click(object sender, EventArgs e)

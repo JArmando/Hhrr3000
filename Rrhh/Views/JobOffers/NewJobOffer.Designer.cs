@@ -39,6 +39,9 @@
             this.DescriptionTxtBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.OkButton = new System.Windows.Forms.Button();
+            this.PickJobBtn = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.JobNameTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -126,18 +129,48 @@
             // 
             // OkButton
             // 
-            this.OkButton.Location = new System.Drawing.Point(229, 292);
+            this.OkButton.Location = new System.Drawing.Point(220, 348);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 23);
             this.OkButton.TabIndex = 10;
             this.OkButton.Text = "Create";
             this.OkButton.UseVisualStyleBackColor = true;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
+            // 
+            // PickJobBtn
+            // 
+            this.PickJobBtn.Location = new System.Drawing.Point(263, 273);
+            this.PickJobBtn.Name = "PickJobBtn";
+            this.PickJobBtn.Size = new System.Drawing.Size(75, 23);
+            this.PickJobBtn.TabIndex = 11;
+            this.PickJobBtn.Text = "Job Picker";
+            this.PickJobBtn.UseVisualStyleBackColor = true;
+            this.PickJobBtn.Click += new System.EventHandler(this.PickJobBtn_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(121, 278);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(24, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Job";
+            // 
+            // JobNameTxt
+            // 
+            this.JobNameTxt.Location = new System.Drawing.Point(157, 276);
+            this.JobNameTxt.Name = "JobNameTxt";
+            this.JobNameTxt.Size = new System.Drawing.Size(100, 20);
+            this.JobNameTxt.TabIndex = 13;
             // 
             // NewJobOffer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(452, 456);
+            this.Controls.Add(this.JobNameTxt);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.PickJobBtn);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.DescriptionTxtBox);
             this.Controls.Add(this.label5);
@@ -169,5 +202,8 @@
         private System.Windows.Forms.TextBox DescriptionTxtBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button OkButton;
+        private System.Windows.Forms.Button PickJobBtn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox JobNameTxt;
     }
 }

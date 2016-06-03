@@ -5,8 +5,10 @@ using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Views.Candidates;
+using Rrhh.Views.Departments;
 using Rrhh.Views.Employees;
 using Rrhh.Views.JobOffers;
+using Rrhh.Views.Jobs;
 
 namespace Rrhh.Views.Home
 {
@@ -63,7 +65,19 @@ namespace Rrhh.Views.Home
 
         private void createJobOfferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var view = new NewJobOffer();
+            var view = new NewJobOffer(new JobOffersController(Context));
+            NavigateTo(view);
+        }
+
+        private void createJobToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var view = new NewJob(new JobsController(Context));
+            NavigateTo(view);
+        }
+
+        private void createDepartmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var view = new NewDepartment(new DepartmentsController(Context), ViewContext);
             NavigateTo(view);
         }
     }

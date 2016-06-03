@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Rrhh.Models;
 
 namespace Rrhh.Views
 {
@@ -15,6 +16,11 @@ namespace Rrhh.Views
     {
         public List<string> Errors { get; set; }
         public List<string> Notices { get; set; }
+
+        public void AddErrors(BaseModel model)
+        {
+            Errors.AddRange(model.Errors.Select(x => x.ErrorMessage));
+        }
 
         public void Clear()
         {

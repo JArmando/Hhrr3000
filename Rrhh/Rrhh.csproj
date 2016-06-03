@@ -71,8 +71,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CandidatesController.cs" />
+    <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobOffersController.cs" />
+    <Compile Include="Controllers\JobsController.cs" />
     <Compile Include="Db\AcademicCompetenceConfiguration.cs" />
     <Compile Include="Db\CandidateConfiguration.cs" />
     <Compile Include="Db\BasicCompetenceConfiguration.cs" />
@@ -108,6 +111,10 @@
     <Compile Include="Migrations\201606011810298_updatingrelationship.cs" />
     <Compile Include="Migrations\201606011810298_updatingrelationship.Designer.cs">
       <DependentUpon>201606011810298_updatingrelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606031851230_ModifyingDepartment.cs" />
+    <Compile Include="Migrations\201606031851230_ModifyingDepartment.Designer.cs">
+      <DependentUpon>201606031851230_ModifyingDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicCompetence.cs" />
@@ -147,6 +154,12 @@
     <Compile Include="Views\Competences\NewCompetence.Designer.cs">
       <DependentUpon>NewCompetence.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Departments\NewDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Departments\NewDepartment.Designer.cs">
+      <DependentUpon>NewDepartment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Employees\ListEmployeesView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +183,18 @@
     </Compile>
     <Compile Include="Views\JobOffers\NewJobOffer.Designer.cs">
       <DependentUpon>NewJobOffer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jobs\NewJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Jobs\NewJob.Designer.cs">
+      <DependentUpon>NewJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\RowSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\RowSelector.Designer.cs">
+      <DependentUpon>RowSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Resumes\NewResume.cs">
       <SubType>Form</SubType>
@@ -195,6 +220,9 @@
     <EmbeddedResource Include="Migrations\201606011810298_updatingrelationship.resx">
       <DependentUpon>201606011810298_updatingrelationship.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606031851230_ModifyingDepartment.resx">
+      <DependentUpon>201606031851230_ModifyingDepartment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -213,6 +241,9 @@
     <EmbeddedResource Include="Views\Competences\NewCompetence.resx">
       <DependentUpon>NewCompetence.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Departments\NewDepartment.resx">
+      <DependentUpon>NewDepartment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Employees\ListEmployeesView.resx">
       <DependentUpon>ListEmployeesView.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +255,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\JobOffers\NewJobOffer.resx">
       <DependentUpon>NewJobOffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Jobs\NewJob.resx">
+      <DependentUpon>NewJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\RowSelector.resx">
+      <DependentUpon>RowSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Resumes\NewResume.resx">
       <DependentUpon>NewResume.cs</DependentUpon>
