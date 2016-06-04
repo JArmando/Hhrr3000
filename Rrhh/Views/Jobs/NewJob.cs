@@ -14,13 +14,13 @@ using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Jobs
 {
-    public partial class NewJob : Form
+    public partial class NewJob : BaseView
     {
         public Department Department;
         private JobsController Controller;
         private RrhhContext Context => Controller.Context;
 
-        public NewJob(JobsController controller)
+        public NewJob(ViewContext viewContext, JobsController controller) : base(viewContext)
         {
             InitializeComponent();
             Controller = controller;
@@ -39,7 +39,8 @@ namespace Rrhh.Views.Jobs
         {
             var name = NameTxtBox.Text;
             var description = descriptionTxtBox.Text;
-            Controller.Create(name, description, Department);
+            var newJob = Controller.Create(name, description, Department);
+            ViewContext.AddErrors(newJob);
         }
     }
 }

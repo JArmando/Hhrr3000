@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CandidatesController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
@@ -116,6 +117,18 @@
     <Compile Include="Migrations\201606031851230_ModifyingDepartment.Designer.cs">
       <DependentUpon>201606031851230_ModifyingDepartment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606032240261_RequiredPropertiesForJobs.cs" />
+    <Compile Include="Migrations\201606032240261_RequiredPropertiesForJobs.Designer.cs">
+      <DependentUpon>201606032240261_RequiredPropertiesForJobs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606032330292_Blerop.cs" />
+    <Compile Include="Migrations\201606032330292_Blerop.Designer.cs">
+      <DependentUpon>201606032330292_Blerop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606032348480_Bleropdfg.cs" />
+    <Compile Include="Migrations\201606032348480_Bleropdfg.Designer.cs">
+      <DependentUpon>201606032348480_Bleropdfg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicCompetence.cs" />
     <Compile Include="Models\Competence.cs" />
@@ -133,7 +146,7 @@
     <Compile Include="Models\WorkExperience.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\BaseView.cs">
+    <Compile Include="Views\Shared\BaseView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Candidates\ListCandidates.cs">
@@ -222,6 +235,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606031851230_ModifyingDepartment.resx">
       <DependentUpon>201606031851230_ModifyingDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606032240261_RequiredPropertiesForJobs.resx">
+      <DependentUpon>201606032240261_RequiredPropertiesForJobs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606032330292_Blerop.resx">
+      <DependentUpon>201606032330292_Blerop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606032348480_Bleropdfg.resx">
+      <DependentUpon>201606032348480_Bleropdfg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,27 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Models;
+using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Employees
 {
-    public partial class NewEmployeeView : Form
+    public partial class NewEmployeeView : BaseView
     {
         public Employee Employee { get; set; }
         private Resume Resume { get; set; }
         private EmployeesController Controller { get; }
-        public NewEmployeeView(EmployeesController controller)
+        public NewEmployeeView(ViewContext viewContext, EmployeesController controller) : base(viewContext)
         {
             InitializeComponent();
             Controller = controller;
-            //AddEmployeeBtn.Enabled = false;
         }
 
         private void AddEmployeeBtn_Click(object sender, EventArgs e)
@@ -34,7 +26,8 @@ namespace Rrhh.Views.Employees
             var aspiringSalary = decimal.Parse(SalaryTxtBox.Text);
             //var job = new Job();
             //Add logic to pick a job by department after I create the list of jobs
-            Employee = Controller.New(firstName, lastName, governmentIssuedId, email, phone, aspiringSalary, null);
+            Employee = Controller.Create(firstName, lastName, governmentIssuedId, email, phone, aspiringSalary, null);
+            ViewContext.AddErrors(Employee);
         }
     }
 }

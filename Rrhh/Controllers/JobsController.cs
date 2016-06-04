@@ -9,33 +9,23 @@ using Rrhh.Models;
 
 namespace Rrhh.Controllers
 {
-    public class JobsController
+    public class JobsController : BaseController
     {
-        public RrhhContext Context { get; }
-        private DbSet dbset { get; }
-
-        public JobsController(RrhhContext context)
+        
+        public JobsController(RrhhContext context) : base(context, context.Jobs)
         {
-            Context = context;
-            dbset = context.Jobs;
         }
 
-        public Job New(Department department, string name)
+        public Job New(Department department, string name, string description)
         {
-            return new Job {Department = department, Name = name};
+            return new Job {Department = department, Name = name, Description = description};
         }
 
         public Job Create(string name, string description, Department department)
         {
-            var newJob = New(department, name);
-            SaveChanges(newJob);
+            var newJob = New(department, name, description);
+            DoCreate(newJob);
             return newJob;
-        }
-
-        private void SaveChanges(BaseModel model)
-        {
-            dbset.Add(model);
-            Context.SaveChanges();
         }
     }
 }

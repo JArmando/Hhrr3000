@@ -33,10 +33,6 @@ namespace Rrhh.Views.Resumes
         {
             var dialog = new NewCompetence();
             dialog.ShowDialog(this);
-            if (Resume.Competences == null)
-            {
-                Resume.Competences = new List<BasicCompetence>();
-            }
             Resume.Competences.Add(dialog.NewBasicCompetence);
             RefreshData();
         }

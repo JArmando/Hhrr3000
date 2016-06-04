@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 using Rrhh.Controllers;
+using Rrhh.Migrations;
 using Rrhh.Models;
 using Rrhh.Views.Home;
 using Rrhh.Views.Resumes;
+using Rrhh.Views.Shared;
 
 namespace Rrhh.Views
 {
@@ -12,14 +15,15 @@ namespace Rrhh.Views
     {
         public Candidate Candidate { get; set; }
         private Resume Resume { get; set; }
+        private JobOffer JobOffer { get; set; }
         private CandidatesController Controller { get; }
+        private RrhhContext Context => Controller.Context;
         
-        public NewCandidateView(ViewContext viewContext, CandidatesController controller)
+        public NewCandidateView(ViewContext viewContext, CandidatesController controller) : base(viewContext)
         {
             InitializeComponent();
             Controller = controller;
             AddCandidateBtn.Enabled = false;
-            ViewContext = viewContext;
         }
 
         private void AddCandidateBtn_Click(object sender, EventArgs e)
@@ -30,7 +34,7 @@ namespace Rrhh.Views
             var email = EmailTxtBox.Text;
             var governmentIssuedId = SocialIdTxtBox.Text;
             var aspiringSalary = decimal.Parse(aspiringSalaryTxtBox.Text);
-            var candidate = Controller.New(firstName, lastName, governmentIssuedId, email, phone, aspiringSalary, Resume);
+            var candidate = Controller.Create(firstName, lastName, governmentIssuedId, email, phone, aspiringSalary, Resume, JobOffer);
             ViewContext.AddErrors(candidate);
         }
 
@@ -38,7 +42,6 @@ namespace Rrhh.Views
         {
             var dialog = new NewResume(Resume);
             dialog.ShowDialog();
-            Resume = dialog.Resume;
 
             if (ResumeIsAttached()) EnableBtn(AddCandidateBtn);
         }
@@ -51,6 +54,16 @@ namespace Rrhh.Views
         private static void EnableBtn(Control button)
         {
             button.Enabled = true;
+        }
+
+        private void selectJobOfferBtn_Click(object sender, EventArgs e)
+        {
+            var bindingSource = new BindingSource { DataSource = Context.JobOffers.ToList()};
+            // please use the controller's list method
+            var dialog = new RowSelector(bindingSource);
+            dialog.ShowDialog();
+            JobOffer = dialog.SelectedItem as JobOffer;
+            dialog.Close();
         }
     }
 }

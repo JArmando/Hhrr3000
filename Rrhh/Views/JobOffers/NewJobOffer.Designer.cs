@@ -80,7 +80,7 @@
             // MinSalaryTxtBox
             // 
             this.MinSalaryTxtBox.Location = new System.Drawing.Point(204, 189);
-            this.MinSalaryTxtBox.Mask = "RD$000,000,000.00";
+            this.MinSalaryTxtBox.Mask = "000000000";
             this.MinSalaryTxtBox.Name = "MinSalaryTxtBox";
             this.MinSalaryTxtBox.Size = new System.Drawing.Size(100, 20);
             this.MinSalaryTxtBox.TabIndex = 4;
@@ -106,7 +106,7 @@
             // MaxSalaryTxtBox
             // 
             this.MaxSalaryTxtBox.Location = new System.Drawing.Point(204, 215);
-            this.MaxSalaryTxtBox.Mask = "RD$000,000,000.00";
+            this.MaxSalaryTxtBox.Mask = "000000000";
             this.MaxSalaryTxtBox.Name = "MaxSalaryTxtBox";
             this.MaxSalaryTxtBox.Size = new System.Drawing.Size(100, 20);
             this.MaxSalaryTxtBox.TabIndex = 6;

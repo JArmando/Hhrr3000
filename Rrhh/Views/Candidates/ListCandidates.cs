@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Models;
+using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Candidates
 {
-    public partial class ListCandidates : Form
+    public partial class ListCandidates : BaseView
     {
         private CandidatesController Controller { get; }
-        public ListCandidates(CandidatesController controller)
+        public ListCandidates(ViewContext viewcontext, CandidatesController controller) : base(viewcontext)
         {
             InitializeComponent();
             Controller = controller;
@@ -33,7 +28,6 @@ namespace Rrhh.Views.Candidates
             {
                 Controller.Hire(selectedRow.DataBoundItem as Candidate);
             }
-            Controller.SaveChanges();
             //notify that the candidates were hired and get out of this view
         }
     }

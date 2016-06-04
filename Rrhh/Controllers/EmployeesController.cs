@@ -4,13 +4,11 @@ using Rrhh.Models;
 
 namespace Rrhh.Controllers
 {
-    public class EmployeesController
+    public class EmployeesController : BaseController
     {
-        public RrhhContext Context { get; }
 
-        public EmployeesController(RrhhContext context)
+        public EmployeesController(RrhhContext context) : base(context, context.Employees)
         {
-            Context = context;
         }
 
         public Employee New(string firstName, string lastName, string governmentIssuedId, string email,
@@ -31,14 +29,15 @@ namespace Rrhh.Controllers
         {
             var newEmployee = New(firstName, lastName, governmentIssuedId, email, phoneNumber, aspiringSalary);
             newEmployee.Job = job;
-            return Create(newEmployee);
+            return newEmployee;
         }
 
-        public Employee Create(Employee employee)
+        public Employee Create(string firstName, string lastName, string governmentIssuedId, string email,
+            string phoneNumber, decimal aspiringSalary, Job job)
         {
-            Context.Employees.Add(employee);
-            Context.SaveChanges();
-            return employee;
+            var newEmployee = New(firstName, lastName, governmentIssuedId, email, phoneNumber, aspiringSalary, job);
+            DoCreate(newEmployee);
+            return newEmployee;
         }
 
         public IEnumerable<Employee> ListEmployees()

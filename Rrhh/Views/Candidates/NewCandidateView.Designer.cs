@@ -42,6 +42,7 @@
             this.SocialIdTxtBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.aspiringSalaryTxtBox = new System.Windows.Forms.MaskedTextBox();
+            this.selectJobOfferBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FirstNameLbl
@@ -122,7 +123,7 @@
             // 
             this.AttachResumeBtn.Location = new System.Drawing.Point(276, 22);
             this.AttachResumeBtn.Name = "AttachResumeBtn";
-            this.AttachResumeBtn.Size = new System.Drawing.Size(203, 139);
+            this.AttachResumeBtn.Size = new System.Drawing.Size(203, 72);
             this.AttachResumeBtn.TabIndex = 9;
             this.AttachResumeBtn.Text = "Attach Resume";
             this.AttachResumeBtn.UseVisualStyleBackColor = true;
@@ -161,11 +162,22 @@
             this.aspiringSalaryTxtBox.Size = new System.Drawing.Size(100, 20);
             this.aspiringSalaryTxtBox.TabIndex = 13;
             // 
+            // selectJobOfferBtn
+            // 
+            this.selectJobOfferBtn.Location = new System.Drawing.Point(276, 106);
+            this.selectJobOfferBtn.Name = "selectJobOfferBtn";
+            this.selectJobOfferBtn.Size = new System.Drawing.Size(203, 72);
+            this.selectJobOfferBtn.TabIndex = 14;
+            this.selectJobOfferBtn.Text = "Select Job offer aspiration";
+            this.selectJobOfferBtn.UseVisualStyleBackColor = true;
+            this.selectJobOfferBtn.Click += new System.EventHandler(this.selectJobOfferBtn_Click);
+            // 
             // NewCandidateView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 286);
+            this.Controls.Add(this.selectJobOfferBtn);
             this.Controls.Add(this.aspiringSalaryTxtBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.SocialIdTxtBox);
@@ -203,5 +215,6 @@
         private System.Windows.Forms.TextBox SocialIdTxtBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.MaskedTextBox aspiringSalaryTxtBox;
+        private System.Windows.Forms.Button selectJobOfferBtn;
     }
 }

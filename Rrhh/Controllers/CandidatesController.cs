@@ -5,16 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Rrhh.Migrations;
 using Rrhh.Models;
+using Rrhh.Views;
 
 namespace Rrhh.Controllers
 {
-    public class CandidatesController
+    public class CandidatesController : BaseController
     {
-        public RrhhContext Context { get; }
-
-        public CandidatesController(RrhhContext context)
+        public CandidatesController(RrhhContext context) : base(context, context.Candidates)
         {
-            Context = context;
         }
 
         public Candidate New(string firstName, string lastName, string governmentIssuedId, string email,
@@ -31,38 +29,28 @@ namespace Rrhh.Controllers
         }
 
         public Candidate New(string firstName, string lastName, string governmentIssuedId, string email,
-            string phoneNumber, decimal aspiringSalary, Resume resume, JobOffer jobOffer = null)
+            string phoneNumber, decimal aspiringSalary, Resume resume, JobOffer jobOffer)
         {
             var newCandidate = New(firstName, lastName, governmentIssuedId, email, phoneNumber, aspiringSalary);
             newCandidate.JobOfferAspiration = jobOffer;
             newCandidate.Resume = resume;
-            return Create(newCandidate);
+            return newCandidate;
         }
 
-        public Candidate Create(Candidate candidate)
+        public Candidate Create(string firstName, string lastName, string governmentIssuedId, string email,
+            string phoneNumber, decimal aspiringSalary, Resume resume, JobOffer jobOffer)
         {
-            try
-            {
-                if (candidate.IsValid()) Context.Candidates.Add(candidate);
-                Context.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                // Need to log or something
-                throw;
-            }
-            return candidate;
+            var newCandidate = New(firstName, lastName, governmentIssuedId, email, phoneNumber, aspiringSalary, resume,
+                jobOffer);
+            if (newCandidate.IsValid()) DoCreate(newCandidate);
+            // Need to do this here because candidates have a special way of validating
+            return newCandidate;
         }
 
         public bool Hire(Candidate candidate)
         {
             HireCandidate.Call(Context, candidate);
             return true;
-        }
-
-        public void SaveChanges()
-        {
-            Context.SaveChanges();
         }
 
         public IEnumerable<Candidate> ListCandidates()
@@ -88,6 +76,7 @@ namespace Rrhh.Controllers
         {
             var employee = (Employee)candidate;
             employee.HireDate = DateTime.Now;
+            if (employee.IsValid()) Context.SaveChanges();
             return employee;
         }
     }

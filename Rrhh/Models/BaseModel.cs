@@ -18,7 +18,7 @@ namespace Rrhh.Models
         public DateTime? LastModifiedDate { get; set; }
         public bool IsActive { get; set; }
 
-        public ICollection<ValidationResult> Errors = new List<ValidationResult>();
+        public IEnumerable<ValidationResult> Errors = new List<ValidationResult>();
 
         public bool IsValid()
         {
@@ -28,10 +28,11 @@ namespace Rrhh.Models
 
         public IEnumerable<ValidationResult> Validate()
         {
-            Errors = new List<ValidationResult>();
+            var errors = new List<ValidationResult>();
             var validationContext = new ValidationContext(this, null, null);
             var vResult = new List<ValidationResult>();
-            Validator.TryValidateObject(this, validationContext, Errors, true);
+            Validator.TryValidateObject(this, validationContext, errors, true);
+            Errors = Errors.Concat(errors);
             return vResult;
         }
     }

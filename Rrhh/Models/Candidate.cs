@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,10 +11,18 @@ namespace Rrhh.Models
     public class Candidate : Person
     {
         public int? ResumeId { get; set; }
+        [Required]
         public virtual Resume Resume { get; set; }
         public decimal AspiringSalary { get; set; }
         [Required]
         public JobOffer JobOfferAspiration { get; set; }
+
+        public new bool IsValid()
+        {
+            var valid = Resume.IsValid() && JobOfferAspiration.IsValid() && base.IsValid();
+            Errors = Errors.Concat(Resume.Errors.Concat(JobOfferAspiration.Errors));
+            return valid;
+        }
 
         public static explicit operator Employee(Candidate c)
         {

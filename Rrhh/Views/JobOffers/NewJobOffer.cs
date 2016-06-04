@@ -13,14 +13,14 @@ using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.JobOffers
 {
-    public partial class NewJobOffer : Form
+    public partial class NewJobOffer : BaseView
     {
-        private JobOffersController Controller;
+        private readonly JobOffersController _controller;
         private Job Job;
-        public NewJobOffer(JobOffersController controller)
+        public NewJobOffer(ViewContext viewContext, JobOffersController controller) : base(viewContext)
         {
             InitializeComponent();
-            Controller = controller;
+            _controller = controller;
             LoadData();
         }
 
@@ -29,11 +29,9 @@ namespace Rrhh.Views.JobOffers
             RiskLevelsCmbBox.DataSource = NewJobOfferPresenter.RiskLevels;
         }
 
-
-
         private void PickJobBtn_Click(object sender, EventArgs e)
         {
-            var jobList = Controller.Context.Jobs.ToList();
+            var jobList = _controller.Context.Jobs.ToList();
             var dataSource = new BindingSource { DataSource = jobList};
             var dialog =  new RowSelector(dataSource);
             dialog.ShowDialog();
@@ -45,7 +43,8 @@ namespace Rrhh.Views.JobOffers
             var maxSalary = decimal.Parse(MaxSalaryTxtBox.Text);
             var minSalary = decimal.Parse(MinSalaryTxtBox.Text);
             var riskLevel = RiskLevelsCmbBox.SelectedText;
-            Controller.New(Job, maxSalary, minSalary, riskLevel);
+            var jobOffer = _controller.Create(Job, maxSalary, minSalary, riskLevel);
+            ViewContext.AddErrors(jobOffer);
         }
     }
 
