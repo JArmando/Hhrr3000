@@ -7,13 +7,13 @@ namespace Rrhh.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updatingrelationship : IMigrationMetadata
+    public sealed partial class Candidates : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updatingrelationship));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Candidates));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606011810298_updatingrelationship"; }
+            get { return "201606040534581_Candidates"; }
         }
         
         string IMigrationMetadata.Source

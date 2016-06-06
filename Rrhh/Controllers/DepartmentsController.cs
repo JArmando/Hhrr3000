@@ -32,5 +32,10 @@ namespace Rrhh.Controllers
             
             return department;
         }
+
+        public IEnumerable<Department> List()
+        {
+            return Context.Departments.ToList();
+        }
     }
 }

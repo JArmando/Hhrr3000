@@ -1,5 +1,6 @@
 ﻿using System;
 using Rrhh.Controllers;
+using Rrhh.Models;
 using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Departments
@@ -7,6 +8,7 @@ namespace Rrhh.Views.Departments
     public partial class NewDepartment : BaseView
     {
         private readonly DepartmentsController _controller;
+        public Department Department { get; set; }
 
         public NewDepartment(ViewContext viewContext, DepartmentsController controller) : base(viewContext)
         {
@@ -19,7 +21,7 @@ namespace Rrhh.Views.Departments
             var name = NameTxtBox.Text;
             var description = DescriptionTxtBox.Text;
             var department = _controller.Create(name, description);
-            ViewContext.AddErrors(department);
+            Department = department;
         }
     }
 }

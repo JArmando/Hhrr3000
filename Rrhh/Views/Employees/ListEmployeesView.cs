@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Rrhh.Controllers;
+using Rrhh.Models;
 using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Employees
@@ -23,5 +24,14 @@ namespace Rrhh.Views.Employees
             EmployeeList.DataSource = employees.ToList();
         }
 
+        private void EditBtn_Click(object sender, System.EventArgs e)
+        {
+            var employee = EmployeeList.SelectedRows[0].DataBoundItem as Employee;
+            //var dialog = new EditEmployee(employee);
+            //dialog.ShowDialog();
+            Controller.Update(employee);
+            ViewContext.AddErrors(employee);
+            EmployeeList.Refresh();
+        }
     }
 }

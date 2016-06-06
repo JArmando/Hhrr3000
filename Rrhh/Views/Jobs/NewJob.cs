@@ -17,6 +17,7 @@ namespace Rrhh.Views.Jobs
     public partial class NewJob : BaseView
     {
         public Department Department;
+        public Job Job;
         private JobsController Controller;
         private RrhhContext Context => Controller.Context;
 
@@ -40,7 +41,7 @@ namespace Rrhh.Views.Jobs
             var name = NameTxtBox.Text;
             var description = descriptionTxtBox.Text;
             var newJob = Controller.Create(name, description, Department);
-            ViewContext.AddErrors(newJob);
+            Job = newJob;
         }
     }
 }

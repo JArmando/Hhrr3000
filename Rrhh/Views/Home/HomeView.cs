@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
+using Rrhh.Models;
 using Rrhh.Views.Candidates;
 using Rrhh.Views.Departments;
 using Rrhh.Views.Employees;
@@ -28,7 +30,7 @@ namespace Rrhh.Views.Home
             ViewContext.Notifier = x =>
             {
                 InfoBox.Text = string.Join("\n", x);
-            };
+            }   ;
         }
 
         private void AddNewCandidateBtn_Click(object sender, EventArgs e)
@@ -39,7 +41,12 @@ namespace Rrhh.Views.Home
 
         private void ListCandidatesBtn_Click(object sender, EventArgs e)
         {
-            var view = new ListCandidates(ViewContext, new CandidatesController(Context));
+            //var view = new ListCandidates(ViewContext, new CandidatesController(Context));
+            var controller = new CandidatesController(Context);
+
+            var crudMethods = new CrudCandidatesMethods(Context, ViewContext);
+            var dataSource = new BindingSource { DataSource = controller.Presenter.Candidates };
+            var view = new CrudModels(ViewContext, dataSource, crudMethods);
             NavigateTo(view);
         }
 
@@ -50,7 +57,11 @@ namespace Rrhh.Views.Home
         }
         private void EmployeeListToolStrip_Click(object sender, EventArgs e)
         {
-            var view = new ListEmployeesView(ViewContext, new EmployeesController(Context));
+            var controller = new EmployeesController(Context);
+            var crudMethods = new CrudEmployeesMethods(Context, ViewContext);
+            var dataSource = new BindingSource { DataSource = controller.ListEmployees().ToList()};
+            
+            var view = new CrudModels(ViewContext, dataSource, crudMethods);
             NavigateTo(view);
         }
 
@@ -84,6 +95,31 @@ namespace Rrhh.Views.Home
         private void createDepartmentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var view = new NewDepartment(ViewContext, new DepartmentsController(Context));
+            NavigateTo(view);
+        }
+
+        private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //var view = new EditEmployee(ViewContext, new EmployeesController(Context) );
+            //NavigateTo(view);
+        }
+
+        private void listToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var controller = new JobsController(Context);
+
+            var crudMethods = new JobsCrudMethods(Context, ViewContext);
+            var dataSource = new BindingSource { DataSource = controller.List() };
+            var view = new CrudModels(ViewContext, dataSource, crudMethods);
+            NavigateTo(view);
+        }
+
+        private void listToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var controller = new DepartmentsController(Context);
+            var crudMethods = new DepartmentsCrudMethods(Context, ViewContext);
+            var datasource = new BindingSource {DataSource = controller.List()};
+            var view = new CrudModels(ViewContext, datasource, crudMethods);
             NavigateTo(view);
         }
     }

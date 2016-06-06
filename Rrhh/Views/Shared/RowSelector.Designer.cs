@@ -39,6 +39,7 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(1, 104);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(592, 278);
             this.dataGridView.TabIndex = 0;
             // 
@@ -52,7 +53,7 @@
             this.SelectBtn.UseVisualStyleBackColor = true;
             this.SelectBtn.Click += new System.EventHandler(this.SelectBtn_Click);
             // 
-            // JobSelector
+            // RowSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

@@ -19,7 +19,7 @@ namespace Rrhh.Models
         public bool IsActive { get; set; }
 
         public IEnumerable<ValidationResult> Errors = new List<ValidationResult>();
-
+        
         public bool IsValid()
         {
             Validate();
@@ -38,9 +38,9 @@ namespace Rrhh.Models
     }
     public static class DbSetExtension
     {
-        public static IQueryable<BaseModel> Active(this IQueryable<BaseModel> query)
+        public static IQueryable<T> Active<T>(this IQueryable<T> query) where T : BaseModel
         {
-            return query.Where(x => x.IsActive);
+            return query.Where(x => (x.IsActive));
         }
     }
 

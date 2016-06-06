@@ -7,13 +7,13 @@ namespace Rrhh.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RequiredPropertiesForJobs : IMigrationMetadata
+    public sealed partial class InitialSnap : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RequiredPropertiesForJobs));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSnap));
         
         string IMigrationMetadata.Id
         {
-            get { return "201606032240261_RequiredPropertiesForJobs"; }
+            get { return "201606040510028_InitialSnap"; }
         }
         
         string IMigrationMetadata.Source

@@ -16,13 +16,13 @@ namespace Rrhh.Views.Shared
 
         private void LoadData()
         {
-            dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView.DataSource = BindingSource;
         }
 
         private void SelectBtn_Click(object sender, EventArgs e)
         {
             SelectedItem = dataGridView.SelectedRows[0].DataBoundItem;
+            Close();
         }
     }
 }

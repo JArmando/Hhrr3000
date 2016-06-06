@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
+using System.Windows.Forms.VisualStyles;
 using Rrhh.Migrations;
 using Rrhh.Models;
 
@@ -38,6 +40,27 @@ namespace Rrhh.Controllers
             var newEmployee = New(firstName, lastName, governmentIssuedId, email, phoneNumber, aspiringSalary, job);
             DoCreate(newEmployee);
             return newEmployee;
+        }
+
+        public Employee Update(Employee employee)
+        {
+            // Need to figure out a way to do this in a more generic way
+            // to move it to the BaseController
+            if(employee.IsValid()) Context.Employees.AddOrUpdate(employee); Context.SaveChanges();
+
+            return employee;
+        }
+
+        public bool Delete(Employee employee)
+        {
+            Dbset.Remove(employee);
+            Context.SaveChanges();
+            return true;
+        }
+
+        public static bool Delete(RrhhContext context, Employee employee)
+        {
+            return new EmployeesController(context).Delete(employee);
         }
 
         public IEnumerable<Employee> ListEmployees()

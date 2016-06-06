@@ -15,7 +15,8 @@ namespace Rrhh.Models
         public virtual Resume Resume { get; set; }
         public decimal AspiringSalary { get; set; }
         [Required]
-        public JobOffer JobOfferAspiration { get; set; }
+        public virtual JobOffer JobOfferAspiration { get; set; }
+        public Guid? JobOfferAspirationId { get; set; }
 
         public new bool IsValid()
         {

@@ -10,9 +10,9 @@ namespace Rrhh.Db
             Property(p => p.Id).HasColumnName("ResumeId");
             Property(p => p.RecommendedById).IsOptional();
 
-            HasMany(p => p.Competences).WithMany();
-            HasMany(p => p.Languages).WithOptional();
-            HasMany(p => p.WorkExperiences).WithMany();
+            //HasMany(p => p.Competences).WithOptional();
+            //HasMany(p => p.Languages).WithOptional();
+            //HasMany(p => p.WorkExperiences).WithOptional();
 
             ToTable("Resumes");
         }

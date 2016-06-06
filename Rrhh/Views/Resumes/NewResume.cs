@@ -7,21 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Rrhh.Migrations;
 using Rrhh.Models;
 using Rrhh.Views.Competences;
+using Rrhh.Views.Shared;
 using TheArtOfDev.HtmlRenderer.WinForms;
 
 namespace Rrhh.Views.Resumes
 {
-    public partial class NewResume : Form
+    public partial class NewResume : BaseView
     {
-        public Resume Resume { get; set; }
+        public Resume Resume { get; set; } = new Resume();
 
-        public NewResume(Resume resume = null)
+        public NewResume(RrhhContext context, ViewContext view)
         {
             InitializeComponent();
-            Resume = resume?? new Resume();
-            RefreshData();
         }
 
         private void NewResume_Load(object sender, EventArgs e)
@@ -31,15 +31,18 @@ namespace Rrhh.Views.Resumes
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            var dialog = new NewCompetence();
-            dialog.ShowDialog(this);
-            Resume.Competences.Add(dialog.NewBasicCompetence);
+            //var dialog = new CompetencesCrudMethods();
+            //dialog.ShowDialog();
+
+           // var crudMethods = new CompetencesCrudMethods(Context);
+
+            //Resume.Competences.Add(dialog.NewBasicCompetence);
             RefreshData();
         }
 
         private void RefreshData()
         {
-            competencesGrid.DataSource = Resume.Competences;
+            competencesGrid.DataSource = new BindingSource {DataSource = Resume.Competences};
             languagesGrid.DataSource = Resume.Languages;
         }
     }

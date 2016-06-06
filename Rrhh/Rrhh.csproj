@@ -87,47 +87,20 @@
     <Compile Include="Db\LanguageConfiguration.cs" />
     <Compile Include="Db\PersonConfiguration.cs" />
     <Compile Include="Db\ResumeConfiguration.cs" />
+    <Compile Include="Db\WorkExperienceConfiguration.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605301717185_InitialCreate.cs" />
-    <Compile Include="Migrations\201605301717185_InitialCreate.Designer.cs">
-      <DependentUpon>201605301717185_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201606040510028_InitialSnap.cs" />
+    <Compile Include="Migrations\201606040510028_InitialSnap.Designer.cs">
+      <DependentUpon>201606040510028_InitialSnap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605301745382_CreateWorkExperience.cs" />
-    <Compile Include="Migrations\201605301745382_CreateWorkExperience.Designer.cs">
-      <DependentUpon>201605301745382_CreateWorkExperience.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605301905344_CreateJob.cs" />
-    <Compile Include="Migrations\201605301905344_CreateJob.Designer.cs">
-      <DependentUpon>201605301905344_CreateJob.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605302039338_RelateCompetencesToResume.cs" />
-    <Compile Include="Migrations\201605302039338_RelateCompetencesToResume.Designer.cs">
-      <DependentUpon>201605302039338_RelateCompetencesToResume.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606011810298_updatingrelationship.cs" />
-    <Compile Include="Migrations\201606011810298_updatingrelationship.Designer.cs">
-      <DependentUpon>201606011810298_updatingrelationship.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606031851230_ModifyingDepartment.cs" />
-    <Compile Include="Migrations\201606031851230_ModifyingDepartment.Designer.cs">
-      <DependentUpon>201606031851230_ModifyingDepartment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606032240261_RequiredPropertiesForJobs.cs" />
-    <Compile Include="Migrations\201606032240261_RequiredPropertiesForJobs.Designer.cs">
-      <DependentUpon>201606032240261_RequiredPropertiesForJobs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606032330292_Blerop.cs" />
-    <Compile Include="Migrations\201606032330292_Blerop.Designer.cs">
-      <DependentUpon>201606032330292_Blerop.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201606032348480_Bleropdfg.cs" />
-    <Compile Include="Migrations\201606032348480_Bleropdfg.Designer.cs">
-      <DependentUpon>201606032348480_Bleropdfg.cs</DependentUpon>
+    <Compile Include="Migrations\201606040534581_Candidates.cs" />
+    <Compile Include="Migrations\201606040534581_Candidates.Designer.cs">
+      <DependentUpon>201606040534581_Candidates.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicCompetence.cs" />
@@ -144,8 +117,19 @@
     <Compile Include="Db\RrhhContext.cs" />
     <Compile Include="Models\Resume.cs" />
     <Compile Include="Models\WorkExperience.cs" />
+    <Compile Include="Presenters\CandidatesPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Candidates\CrudCandidatesMethods.cs" />
+    <Compile Include="Views\Departments\DepartmentsCrudMethods.cs" />
+    <Compile Include="Views\Employees\CrudEmployeesMethods.cs" />
+    <Compile Include="Views\Employees\EditEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Employees\EditEmployee.Designer.cs">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jobs\JobsCrudMethods.cs" />
     <Compile Include="Views\Shared\BaseView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +187,12 @@
     <Compile Include="Views\Jobs\NewJob.Designer.cs">
       <DependentUpon>NewJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Shared\CrudModels.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\CrudModels.Designer.cs">
+      <DependentUpon>CrudModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\RowSelector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,35 +205,20 @@
     <Compile Include="Views\Resumes\NewResume.Designer.cs">
       <DependentUpon>NewResume.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Shared\SelectOrCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\SelectOrCreate.Designer.cs">
+      <DependentUpon>SelectOrCreate.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605301717185_InitialCreate.resx">
-      <DependentUpon>201605301717185_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606040510028_InitialSnap.resx">
+      <DependentUpon>201606040510028_InitialSnap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605301745382_CreateWorkExperience.resx">
-      <DependentUpon>201605301745382_CreateWorkExperience.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605301905344_CreateJob.resx">
-      <DependentUpon>201605301905344_CreateJob.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605302039338_RelateCompetencesToResume.resx">
-      <DependentUpon>201605302039338_RelateCompetencesToResume.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606011810298_updatingrelationship.resx">
-      <DependentUpon>201606011810298_updatingrelationship.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606031851230_ModifyingDepartment.resx">
-      <DependentUpon>201606031851230_ModifyingDepartment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606032240261_RequiredPropertiesForJobs.resx">
-      <DependentUpon>201606032240261_RequiredPropertiesForJobs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606032330292_Blerop.resx">
-      <DependentUpon>201606032330292_Blerop.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201606032348480_Bleropdfg.resx">
-      <DependentUpon>201606032348480_Bleropdfg.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606040534581_Candidates.resx">
+      <DependentUpon>201606040534581_Candidates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -269,6 +244,9 @@
     <EmbeddedResource Include="Views\Employees\ListEmployeesView.resx">
       <DependentUpon>ListEmployeesView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Employees\EditEmployee.resx">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Employees\NewEmployeeView.resx">
       <DependentUpon>NewEmployeeView.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,11 +259,17 @@
     <EmbeddedResource Include="Views\Jobs\NewJob.resx">
       <DependentUpon>NewJob.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\CrudModels.resx">
+      <DependentUpon>CrudModels.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Shared\RowSelector.resx">
       <DependentUpon>RowSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Resumes\NewResume.resx">
       <DependentUpon>NewResume.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shared\SelectOrCreate.resx">
+      <DependentUpon>SelectOrCreate.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -301,9 +285,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Presenters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

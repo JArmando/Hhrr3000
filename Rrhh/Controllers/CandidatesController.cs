@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 using Rrhh.Migrations;
 using Rrhh.Models;
 using Rrhh.Views;
+using Rrhh.Presenters;
 
 namespace Rrhh.Controllers
 {
     public class CandidatesController : BaseController
     {
+        public CandidatesPresenter Presenter { get; }
+
         public CandidatesController(RrhhContext context) : base(context, context.Candidates)
         {
+            Presenter = new CandidatesPresenter(context.Candidates.Active());
         }
 
         public Candidate New(string firstName, string lastName, string governmentIssuedId, string email,
@@ -47,15 +51,20 @@ namespace Rrhh.Controllers
             return newCandidate;
         }
 
-        public bool Hire(Candidate candidate)
+        public Employee Hire(Candidate candidate)
         {
-            HireCandidate.Call(Context, candidate);
-            return true;
+            var employee = HireCandidate.Call(Context, candidate);
+            return employee;
         }
 
-        public IEnumerable<Candidate> ListCandidates()
+        public IEnumerable<PresentedCandidate> Filter(string searchParam)
         {
-            return Context.Candidates;
+            var result = Context.Candidates.Active().Where(x =>
+              x.Resume.Competences.Any(c => c.Description.Contains(searchParam)) ||
+              x.JobOfferAspiration.Job.Name.Contains(searchParam) ||
+              x.JobOfferAspiration.Job.Description.Contains(searchParam)
+            );
+            return new CandidatesPresenter(result).Candidates;
         }
     }
     public class HireCandidate
@@ -76,7 +85,12 @@ namespace Rrhh.Controllers
         {
             var employee = (Employee)candidate;
             employee.HireDate = DateTime.Now;
-            if (employee.IsValid()) Context.SaveChanges();
+            candidate.IsActive = false;
+            if (employee.IsValid())
+            {
+                Context.Employees.Add(employee);
+                Context.SaveChanges();
+            }
             return employee;
         }
     }

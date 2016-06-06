@@ -13,8 +13,8 @@ namespace Rrhh.Views
 {
     public partial class NewCandidateView : BaseView
     {
-        public Candidate Candidate { get; set; }
-        private Resume Resume { get; set; }
+        public Candidate Model { get; set; }
+        private Resume Resume {get;set;}
         private JobOffer JobOffer { get; set; }
         private CandidatesController Controller { get; }
         private RrhhContext Context => Controller.Context;
@@ -40,9 +40,9 @@ namespace Rrhh.Views
 
         private void AttachResumeBtn_Click(object sender, EventArgs e)
         {
-            var dialog = new NewResume(Resume);
+            var dialog = new NewResume();
             dialog.ShowDialog();
-
+            Resume = dialog.Resume;
             if (ResumeIsAttached()) EnableBtn(AddCandidateBtn);
         }
 
@@ -63,7 +63,6 @@ namespace Rrhh.Views
             var dialog = new RowSelector(bindingSource);
             dialog.ShowDialog();
             JobOffer = dialog.SelectedItem as JobOffer;
-            dialog.Close();
         }
     }
 }

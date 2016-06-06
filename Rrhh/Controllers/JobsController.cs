@@ -27,5 +27,10 @@ namespace Rrhh.Controllers
             DoCreate(newJob);
             return newJob;
         }
+
+        public IEnumerable<Job> List()
+        {
+            return Context.Jobs.ToList();
+        }
     }
 }

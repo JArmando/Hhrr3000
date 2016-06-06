@@ -10,6 +10,10 @@ namespace Rrhh.Views.Shared
     {
         internal ViewContext ViewContext;
 
+        public BaseView()
+        {
+        }
+
         internal BaseView(ViewContext viewContext)
         {
             ViewContext = viewContext?? new ViewContext { Errors = new List<string>(), Notices = new List<string>()};
@@ -24,6 +28,12 @@ namespace Rrhh.Views.Shared
         public void AddErrors(BaseModel model)
         {
             Errors.AddRange(model.Errors.Select(x => x.ErrorMessage));
+            Notifier(Errors);
+        }
+
+        public void AddErrors(string message)
+        {
+            Errors.Add(message);
             Notifier(Errors);
         }
 
