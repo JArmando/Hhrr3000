@@ -1,29 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentMigrator.Builders.Update;
 using Rrhh.Migrations;
 using Rrhh.Models;
 
 namespace Rrhh.Controllers
 {
-    public abstract class BaseController
+    public abstract class BaseController<T> where T : BaseModel
     {
         internal RrhhContext Context;
-        internal DbSet Dbset;
+        internal DbSet<T> Dbset;
 
-        internal BaseController(RrhhContext context, DbSet dbSet)
+        internal BaseController(RrhhContext context, DbSet<T> dbSet) 
         {
             Context = context;
             Dbset = dbSet;
         }
 
-        public bool DoCreate(BaseModel model)
+        public bool DoCreate(T model)
         {
             if (!model.IsValid()) return false;
             Dbset.Add(model);
+            Context.SaveChanges();
+            return true;
+        }
+
+        public bool DoDelete(T model)
+        {
+            model.IsActive = false;
+            DoUpdate(model);
+            return true;
+        }
+
+        public bool DoUpdate(T model)
+        {
+            Dbset.AddOrUpdate(model);
             Context.SaveChanges();
             return true;
         }

@@ -40,7 +40,7 @@ namespace Rrhh.Views
 
         private void AttachResumeBtn_Click(object sender, EventArgs e)
         {
-            var dialog = new NewResume();
+            var dialog = new NewResume(Context, ViewContext, Resume);
             dialog.ShowDialog();
             Resume = dialog.Resume;
             if (ResumeIsAttached()) EnableBtn(AddCandidateBtn);

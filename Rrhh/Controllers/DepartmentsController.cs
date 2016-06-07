@@ -8,12 +8,10 @@ using Rrhh.Models;
 
 namespace Rrhh.Controllers
 {
-    public class DepartmentsController
+    public class DepartmentsController : BaseController<Department>
     {
-        public RrhhContext Context { get; }
-        public DepartmentsController(RrhhContext context)
+        public DepartmentsController(RrhhContext context) : base(context, context.Departments)
         {
-            Context = context;
         }
 
         public Department New(string name, string description)
@@ -31,6 +29,16 @@ namespace Rrhh.Controllers
             }
             
             return department;
+        }
+
+        public static bool Delete(RrhhContext context, Department department)
+        {
+            return new DepartmentsController(context).Delete(department);
+        }
+
+        public bool Delete(Department department)
+        {
+            return DoDelete(department);
         }
 
         public IEnumerable<Department> List()

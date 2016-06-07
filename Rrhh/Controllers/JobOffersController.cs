@@ -8,7 +8,7 @@ using Rrhh.Models;
 
 namespace Rrhh.Controllers
 {
-    public class JobOffersController : BaseController
+    public class JobOffersController : BaseController<JobOffer>
     {
 
         public JobOffersController(RrhhContext context) : base(context, context.JobOffers)

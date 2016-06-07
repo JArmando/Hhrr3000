@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,7 @@ using Rrhh.Presenters;
 
 namespace Rrhh.Controllers
 {
-    public class CandidatesController : BaseController
+    public class CandidatesController : BaseController<Candidate>
     {
         public CandidatesPresenter Presenter { get; }
 
@@ -49,6 +50,17 @@ namespace Rrhh.Controllers
             if (newCandidate.IsValid()) DoCreate(newCandidate);
             // Need to do this here because candidates have a special way of validating
             return newCandidate;
+        }
+
+        public Candidate Update(Candidate candidate)
+        {
+            // Todo: implement
+            return candidate;
+        }
+
+        public IEnumerable<Candidate> List()
+        {
+            return Dbset.Active();
         }
 
         public Employee Hire(Candidate candidate)

@@ -20,7 +20,7 @@ namespace Rrhh.Views.Employees
             InitializeComponent();
             Controller = controller;
             ViewContext = viewContext;
-            Employees = Controller.ListEmployees().ToList();
+            Employees = Controller.List().ToList();
             Employee = employee;
             LoadEmployee();
         }
@@ -54,6 +54,18 @@ namespace Rrhh.Views.Employees
             SalaryTxtBox.Text = Employee.Salary.ToString();
             EmailTxtBox.Text = Employee.Email;
             PhoneNumberTxtBox.Text = Employee.Phone;
+            DepartmentTxtBox.Text = Employee.Job.Department.Name;
+        }
+
+        private void selectDepartmentBtn_Click(object sender, EventArgs e)
+        {
+            var departments = new BindingSource { DataSource = Controller.Context.Departments.ToList() };
+            // demeter violation at its finest
+            var dialog = new RowSelector(departments);
+            dialog.ShowDialog();
+            var result = dialog.SelectedItem as Department;
+            Employee.Job.Department = result;
+            if(result != null) LoadEmployee();
         }
     }
 }

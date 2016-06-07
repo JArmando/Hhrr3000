@@ -8,7 +8,8 @@ namespace Rrhh.Models
         public string Name { get; set; }
         [Required]
         public string Description { get; set; }
+
         [Required]
-        public Department Department { get; set; }
+        public Department Department { get; set; } = new Department();
     }
 }

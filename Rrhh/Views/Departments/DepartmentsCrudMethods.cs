@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Models;
@@ -26,7 +27,18 @@ namespace Rrhh.Views.Departments
 
         protected override Func<BaseModel, bool> ConstructDeleteFunction()
         {
-            throw new NotImplementedException();
+            return x =>
+            {
+                var view = MessageBox.Show(null, "Are you sure you want to delete this?", "WARNING", MessageBoxButtons.YesNo);
+                var result = false;
+
+                if (view != DialogResult.Yes) return result;
+
+                var department = x as Department;
+                result = DepartmentsController.Delete(Context, department);
+                if (department != null) ViewContext.AddErrors($"Department {department.Name} deleted");
+                return result;
+            };
         }
 
         protected override Func<BaseModel> ConstructCreateFunction()

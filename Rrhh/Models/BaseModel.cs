@@ -9,7 +9,12 @@ using System.Threading.Tasks;
 
 namespace Rrhh.Models
 {
-    public abstract class BaseModel
+    public interface IModel
+    {
+        bool IsValid();
+    }
+
+    public abstract class BaseModel : IModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

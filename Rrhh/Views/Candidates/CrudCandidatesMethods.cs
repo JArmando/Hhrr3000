@@ -50,7 +50,9 @@ namespace Rrhh.Views.Candidates
         {
             return (x) =>
             {
-                ViewContext.AddErrors(_notImplementedActionMessage);
+                var view = new EditCandidate(Context, ViewContext, x as Candidate, new CandidatesController(Context));
+                view.ShowDialog();
+                ViewContext.AddErrors(x);
                 return x;
             };
         }

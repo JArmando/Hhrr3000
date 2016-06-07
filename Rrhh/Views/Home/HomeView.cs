@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Models;
+using Rrhh.Presenters;
 using Rrhh.Views.Candidates;
 using Rrhh.Views.Departments;
 using Rrhh.Views.Employees;
@@ -43,9 +44,10 @@ namespace Rrhh.Views.Home
         {
             //var view = new ListCandidates(ViewContext, new CandidatesController(Context));
             var controller = new CandidatesController(Context);
+            var presenter = new CandidatesPresenter(controller.List());
 
             var crudMethods = new CrudCandidatesMethods(Context, ViewContext);
-            var dataSource = new BindingSource { DataSource = controller.Presenter.Candidates };
+            var dataSource = new BindingSource { DataSource = presenter.Candidates };
             var view = new CrudModels(ViewContext, dataSource, crudMethods);
             NavigateTo(view);
         }
@@ -58,8 +60,9 @@ namespace Rrhh.Views.Home
         private void EmployeeListToolStrip_Click(object sender, EventArgs e)
         {
             var controller = new EmployeesController(Context);
+            var presenter = new EmployeesPresenter(controller.List());
             var crudMethods = new CrudEmployeesMethods(Context, ViewContext);
-            var dataSource = new BindingSource { DataSource = controller.ListEmployees().ToList()};
+            var dataSource = new BindingSource { DataSource = presenter.Employees};
             
             var view = new CrudModels(ViewContext, dataSource, crudMethods);
             NavigateTo(view);
@@ -73,11 +76,6 @@ namespace Rrhh.Views.Home
             TheBox.Controls.Add(view);
             view.Dock = DockStyle.Bottom;
             view.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            InfoBox.Text = string.Join("\n", ViewContext.Errors);
         }
 
         private void createJobOfferToolStripMenuItem_Click(object sender, EventArgs e)

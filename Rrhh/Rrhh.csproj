@@ -118,9 +118,17 @@
     <Compile Include="Models\Resume.cs" />
     <Compile Include="Models\WorkExperience.cs" />
     <Compile Include="Presenters\CandidatesPresenter.cs" />
+    <Compile Include="Presenters\EmployeesPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Candidates\CrudCandidatesMethods.cs" />
+    <Compile Include="Views\Candidates\EditCandidate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Candidates\EditCandidate.Designer.cs">
+      <DependentUpon>EditCandidate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Competences\CompetencesCrudMethods.cs" />
     <Compile Include="Views\Departments\DepartmentsCrudMethods.cs" />
     <Compile Include="Views\Employees\CrudEmployeesMethods.cs" />
     <Compile Include="Views\Employees\EditEmployee.cs">
@@ -128,6 +136,12 @@
     </Compile>
     <Compile Include="Views\Employees\EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Jobs\EditJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Jobs\EditJob.Designer.cs">
+      <DependentUpon>EditJob.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Jobs\JobsCrudMethods.cs" />
     <Compile Include="Views\Shared\BaseView.cs">
@@ -229,6 +243,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Candidates\EditCandidate.resx">
+      <DependentUpon>EditCandidate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Candidates\ListCandidates.resx">
       <DependentUpon>ListCandidates.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\JobOffers\NewJobOffer.resx">
       <DependentUpon>NewJobOffer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Jobs\EditJob.resx">
+      <DependentUpon>EditJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Jobs\NewJob.resx">
       <DependentUpon>NewJob.cs</DependentUpon>

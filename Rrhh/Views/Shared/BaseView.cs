@@ -27,7 +27,7 @@ namespace Rrhh.Views.Shared
         public Action<List<string>> Notifier;
         public void AddErrors(BaseModel model)
         {
-            Errors.AddRange(model.Errors.Select(x => x.ErrorMessage));
+            if (model != null) Errors.AddRange(model.Errors.Select(x => x.ErrorMessage));
             Notifier(Errors);
         }
 

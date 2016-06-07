@@ -6,7 +6,7 @@ using Rrhh.Models;
 
 namespace Rrhh.Controllers
 {
-    public class EmployeesController : BaseController
+    public class EmployeesController : BaseController<Employee>
     {
 
         public EmployeesController(RrhhContext context) : base(context, context.Employees)
@@ -45,8 +45,8 @@ namespace Rrhh.Controllers
         public Employee Update(Employee employee)
         {
             // Need to figure out a way to do this in a more generic way
-            // to move it to the BaseController
-            if(employee.IsValid()) Context.Employees.AddOrUpdate(employee); Context.SaveChanges();
+            // TODO: move it to the BaseController
+            if (employee.IsValid()) Context.Employees.AddOrUpdate(employee); Context.SaveChanges();
 
             return employee;
         }
@@ -63,7 +63,7 @@ namespace Rrhh.Controllers
             return new EmployeesController(context).Delete(employee);
         }
 
-        public IEnumerable<Employee> ListEmployees()
+        public IEnumerable<Employee> List()
         {
             return Context.Employees;
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using Rrhh.Models;
 
 namespace Rrhh.Controllers
 {
-    public class JobsController : BaseController
+    public class JobsController : BaseController<Job>
     {
         
         public JobsController(RrhhContext context) : base(context, context.Jobs)
@@ -26,6 +27,19 @@ namespace Rrhh.Controllers
             var newJob = New(department, name, description);
             DoCreate(newJob);
             return newJob;
+        }
+
+        public Job Update(Job job)
+        {
+            Context.Jobs.AddOrUpdate(job);
+            Context.SaveChanges();
+            return job;
+        }
+
+        public bool Delete(Job job)
+        {
+            DoDelete(job);
+            return true;
         }
 
         public IEnumerable<Job> List()

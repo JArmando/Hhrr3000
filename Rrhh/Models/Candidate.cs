@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Rrhh.Models
 {
-    public class Candidate : Person
+    public class Candidate : Person, IModel
     {
         public int? ResumeId { get; set; }
         [Required]

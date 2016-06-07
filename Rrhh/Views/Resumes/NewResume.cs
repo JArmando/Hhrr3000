@@ -1,27 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rrhh.Migrations;
 using Rrhh.Models;
-using Rrhh.Views.Competences;
 using Rrhh.Views.Shared;
-using TheArtOfDev.HtmlRenderer.WinForms;
 
 namespace Rrhh.Views.Resumes
 {
     public partial class NewResume : BaseView
     {
-        public Resume Resume { get; set; } = new Resume();
-
-        public NewResume(RrhhContext context, ViewContext view)
+        public Resume Resume { get; set; }
+        private RrhhContext dataContext;
+        public NewResume(RrhhContext context, ViewContext viewContext, Resume resume)
         {
             InitializeComponent();
+            ViewContext = viewContext;
+            dataContext = context;
+            Resume = resume ?? new Resume();
+            RefreshData();
         }
 
         private void NewResume_Load(object sender, EventArgs e)
@@ -37,6 +33,10 @@ namespace Rrhh.Views.Resumes
            // var crudMethods = new CompetencesCrudMethods(Context);
 
             //Resume.Competences.Add(dialog.NewBasicCompetence);
+            var source = new BindingSource { DataSource = dataContext.Competences.ToList() };
+            var dialog = new RowSelector(source);
+            dialog.ShowDialog();
+            Resume.Competences.Add(dialog.SelectedItem as BasicCompetence);
             RefreshData();
         }
 

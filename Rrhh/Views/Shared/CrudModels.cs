@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rrhh.Models;
+using Rrhh.Presenters;
 using Rrhh.Views.Candidates;
 
 namespace Rrhh.Views.Shared
@@ -28,8 +29,15 @@ namespace Rrhh.Views.Shared
 
         private void EditBtn_Click(object sender, EventArgs e)
         {
-            var selectedItem = ModelsList.SelectedRows[0].DataBoundItem as BaseModel;
-            var result = _crudMethods.Edit(selectedItem);
+            var selectedItem = ModelsList.SelectedRows[0].DataBoundItem;
+            if (selectedItem is PresentedModel)
+            {
+                _crudMethods.Edit((selectedItem as PresentedModel).Model);
+            }
+            else
+            {
+                _crudMethods.Edit(selectedItem as BaseModel);
+            }
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)

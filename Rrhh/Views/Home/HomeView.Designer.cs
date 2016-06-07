@@ -40,12 +40,12 @@
             this.jobOffersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createJobOfferToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createJobToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createDepartmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.TheBox = new System.Windows.Forms.GroupBox();
             this.InfoBox = new System.Windows.Forms.RichTextBox();
-            this.listToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.topMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,21 +106,21 @@
             // EmployeeNewToolStrip
             // 
             this.EmployeeNewToolStrip.Name = "EmployeeNewToolStrip";
-            this.EmployeeNewToolStrip.Size = new System.Drawing.Size(133, 22);
+            this.EmployeeNewToolStrip.Size = new System.Drawing.Size(152, 22);
             this.EmployeeNewToolStrip.Text = "Create new";
             this.EmployeeNewToolStrip.Click += new System.EventHandler(this.EmployeeNewToolStrip_Click);
             // 
             // EmployeeListToolStrip
             // 
             this.EmployeeListToolStrip.Name = "EmployeeListToolStrip";
-            this.EmployeeListToolStrip.Size = new System.Drawing.Size(133, 22);
+            this.EmployeeListToolStrip.Size = new System.Drawing.Size(152, 22);
             this.EmployeeListToolStrip.Text = "List";
             this.EmployeeListToolStrip.Click += new System.EventHandler(this.EmployeeListToolStrip_Click);
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
             // 
@@ -148,6 +148,13 @@
             this.createJobToolStripMenuItem.Text = "Create job";
             this.createJobToolStripMenuItem.Click += new System.EventHandler(this.createJobToolStripMenuItem_Click);
             // 
+            // listToolStripMenuItem
+            // 
+            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.listToolStripMenuItem.Text = "List";
+            this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
+            // 
             // departmentsToolStripMenuItem
             // 
             this.departmentsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -163,6 +170,13 @@
             this.createDepartmentToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.createDepartmentToolStripMenuItem.Text = "Create department";
             this.createDepartmentToolStripMenuItem.Click += new System.EventHandler(this.createDepartmentToolStripMenuItem_Click);
+            // 
+            // listToolStripMenuItem1
+            // 
+            this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
+            this.listToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
+            this.listToolStripMenuItem1.Text = "List";
+            this.listToolStripMenuItem1.Click += new System.EventHandler(this.listToolStripMenuItem1_Click);
             // 
             // TheBox
             // 
@@ -184,20 +198,6 @@
             this.InfoBox.Size = new System.Drawing.Size(485, 38);
             this.InfoBox.TabIndex = 0;
             this.InfoBox.Text = "";
-            // 
-            // listToolStripMenuItem
-            // 
-            this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.listToolStripMenuItem.Text = "List";
-            this.listToolStripMenuItem.Click += new System.EventHandler(this.listToolStripMenuItem_Click);
-            // 
-            // listToolStripMenuItem1
-            // 
-            this.listToolStripMenuItem1.Name = "listToolStripMenuItem1";
-            this.listToolStripMenuItem1.Size = new System.Drawing.Size(173, 22);
-            this.listToolStripMenuItem1.Text = "List";
-            this.listToolStripMenuItem1.Click += new System.EventHandler(this.listToolStripMenuItem1_Click);
             // 
             // HomeView
             // 
