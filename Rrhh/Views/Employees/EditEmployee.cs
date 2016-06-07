@@ -61,7 +61,8 @@ namespace Rrhh.Views.Employees
         {
             var departments = new BindingSource { DataSource = Controller.Context.Departments.ToList() };
             // demeter violation at its finest
-            var dialog = new RowSelector(departments);
+            var crud = new CrudEmployeesMethods(Controller.Context, ViewContext);
+            var dialog = new RowSelector(departments, crud);
             dialog.ShowDialog();
             var result = dialog.SelectedItem as Department;
             Employee.Job.Department = result;

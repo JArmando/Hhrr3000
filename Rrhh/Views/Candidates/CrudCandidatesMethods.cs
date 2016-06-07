@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Models;
@@ -12,6 +9,7 @@ namespace Rrhh.Views.Candidates
 {
     public abstract class CrudMethods
     {
+        internal readonly string NotImplementedActionMessage = "This action is not yet implemented";
         public Func<BaseModel> Create => ConstructCreateFunction();
         public Func<BaseModel, BaseModel> Edit => ConstructEditFunction();
         public Func<BaseModel, bool> Delete => ConstructDeleteFunction();
@@ -21,12 +19,16 @@ namespace Rrhh.Views.Candidates
         protected abstract Func<BaseModel, bool> ConstructDeleteFunction();
 
         protected abstract Func<BaseModel> ConstructCreateFunction();
+
+        internal bool YouAreNotSureYouWantToDeleteThis()
+        {
+            var view = MessageBox.Show(null, "Are you sure you want to delete this?", "WARNING", MessageBoxButtons.YesNo);
+            return view != DialogResult.Yes;   
+        }
     }
 
     public class CrudCandidatesMethods : CrudMethods
     {
-
-        private readonly string _notImplementedActionMessage = "This action is not yet implemented";
 
         public CrudCandidatesMethods(RrhhContext context, ViewContext viewContext)
         {
@@ -61,8 +63,11 @@ namespace Rrhh.Views.Candidates
         {
             return (x) =>
             {
-                ViewContext.AddErrors(_notImplementedActionMessage);
-                return false;
+                if (YouAreNotSureYouWantToDeleteThis()) return false;
+                var candidate = x as Candidate;
+                var result = CandidatesController.Delete(Context, candidate);
+                if (candidate != null) ViewContext.AddErrors($"Candidate {candidate.FirstName} deleted");
+                return result;
             };
         }
     }

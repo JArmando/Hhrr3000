@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Models;
-using Rrhh.Views.Home;
+using Rrhh.Views.Jobs;
 using Rrhh.Views.Resumes;
 using Rrhh.Views.Shared;
 
@@ -60,7 +59,8 @@ namespace Rrhh.Views
         {
             var bindingSource = new BindingSource { DataSource = Context.JobOffers.ToList()};
             // please use the controller's list method
-            var dialog = new RowSelector(bindingSource);
+            var crud = new JobsCrudMethods(Context, ViewContext);
+            var dialog = new RowSelector(bindingSource, crud);
             dialog.ShowDialog();
             JobOffer = dialog.SelectedItem as JobOffer;
         }

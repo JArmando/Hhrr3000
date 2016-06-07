@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Rrhh.Migrations;
 using Rrhh.Models;
-using Rrhh.Views;
 using Rrhh.Presenters;
 
 namespace Rrhh.Controllers
@@ -52,6 +48,16 @@ namespace Rrhh.Controllers
             return newCandidate;
         }
 
+        public static bool Delete(RrhhContext dataContext, Candidate candidate)
+        {
+            return new CandidatesController(dataContext).Delete(candidate);
+        }
+
+        public bool Delete(Candidate candidate)
+        {
+            return DoDelete(candidate);
+        }
+
         public Candidate Update(Candidate candidate)
         {
             // Todo: implement
@@ -76,7 +82,7 @@ namespace Rrhh.Controllers
               x.JobOfferAspiration.Job.Name.Contains(searchParam) ||
               x.JobOfferAspiration.Job.Description.Contains(searchParam)
             );
-            return new CandidatesPresenter(result).Candidates;
+            return new CandidatesPresenter(result).Models as IEnumerable<PresentedCandidate>;
         }
     }
     public class HireCandidate

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration;
-using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Rrhh.Models;
-
-namespace Rrhh.Db
+﻿namespace Rrhh.Db
 {
     //public class PersonConfiguration : EntityTypeConfiguration<Person>
     //{

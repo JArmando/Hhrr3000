@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Models;
+using Rrhh.Views.Jobs;
 using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.JobOffers
@@ -33,7 +28,8 @@ namespace Rrhh.Views.JobOffers
         {
             var jobList = _controller.Context.Jobs.ToList();
             var dataSource = new BindingSource { DataSource = jobList};
-            var dialog =  new RowSelector(dataSource);
+            var crud = new JobsCrudMethods(_controller.Context, ViewContext);
+            var dialog =  new RowSelector(dataSource, crud);
             dialog.ShowDialog();
             Job = dialog.SelectedItem as Job;
         }

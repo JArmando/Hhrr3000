@@ -1,39 +1,52 @@
 ﻿using Rrhh.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rrhh.Presenters
 {
     public abstract class PresentedModel
     {
-        public BaseModel Model { get; set; }
-    }
+        protected BaseModel Model { get; set; }
+        public string State => Model.IsActive ? "Active" : "Deactivated";
 
-    public class CandidatesPresenter
-    {
-        private IEnumerable<Candidate> _candidates;
-        public IEnumerable<PresentedCandidate> Candidates => PresentCandidates();
-        private IEnumerable<PresentedCandidate> _presentedCandidates;
-        public CandidatesPresenter(IEnumerable<Candidate> candidates)
-        {
-            _candidates = candidates;
-        }
-
-        private IEnumerable<PresentedCandidate> PresentCandidates() {
-            _presentedCandidates = _presentedCandidates ?? _candidates.Select(x => new PresentedCandidate(x));
-            return _presentedCandidates;
-        }
-        
-    }
-    public class PresentedCandidate : PresentedModel
-    {
-        public PresentedCandidate(BaseModel model)
+        protected PresentedModel(BaseModel model)
         {
             Model = model;
         }
+
+        public BaseModel UnWrappModel()
+        {
+            return Model;
+        }
+    }
+
+    public abstract class ModelsPresenter<T> where T: BaseModel
+    {
+        internal IEnumerable<T> _models;
+        internal IEnumerable<PresentedModel> _presentedModels;
+        public IEnumerable<PresentedModel> Models => PresentModels();
+        protected abstract IEnumerable<PresentedModel> PresentModels();
+
+        protected ModelsPresenter(IEnumerable<T> models)
+        {
+            _models = models;
+        }
+    }
+
+    public class CandidatesPresenter : ModelsPresenter<Candidate>
+    {
+        public CandidatesPresenter(IEnumerable<Candidate> candidates) : base(candidates)
+        {
+        }
+        protected override IEnumerable<PresentedModel> PresentModels()
+        {
+            _presentedModels = _presentedModels ?? _models.Select(x => new PresentedCandidate(x));
+            return _presentedModels;
+        }
+    }
+    public class PresentedCandidate : PresentedModel
+    {
+        public PresentedCandidate(BaseModel model) : base(model){}
 
         private Candidate Candidate => Model as Candidate;
         public string Name => Candidate.FirstName +" "+ Candidate.LastName;

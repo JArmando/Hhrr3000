@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Rrhh.Models;
 
 namespace Rrhh.Presenters
@@ -27,9 +24,8 @@ namespace Rrhh.Presenters
 
     public class PresentedEmployee : PresentedModel
     {
-        public PresentedEmployee(BaseModel model)
+        public PresentedEmployee(BaseModel model) : base(model)
         {
-            Model = model;
         }
 
         private Employee Employee => Model as Employee;

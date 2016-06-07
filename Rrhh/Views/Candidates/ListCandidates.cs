@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Models;
 using Rrhh.Views.Shared;
-using System.Collections.Generic;
 using Rrhh.Presenters;
 
 namespace Rrhh.Views.Candidates
@@ -23,7 +22,7 @@ namespace Rrhh.Views.Candidates
 
         public void LoadCandidates()
         {
-            CandidatesGrid.DataSource = new BindingSource { DataSource = Presenter.Candidates };
+            CandidatesGrid.DataSource = new BindingSource { DataSource = Presenter.Models };
         }
         
         private void HireBtn_Click(object sender, EventArgs e)

@@ -1,16 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
-using Rrhh.Properties;
-using Rrhh.Views;
-using Rrhh.Views.Candidates;
 using Rrhh.Views.Home;
-using Rrhh.Views.JobOffers;
-using Rrhh.Views.Resumes;
 using Rrhh.Views.Shared;
 
 namespace Rrhh

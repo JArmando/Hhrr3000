@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Models;
+using Rrhh.Views.Departments;
 using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Jobs
@@ -32,7 +27,8 @@ namespace Rrhh.Views.Jobs
         private void selectDepartmentBtn_Click(object sender, EventArgs e)
         {
             var departments = new BindingSource { DataSource = Context.Departments.ToList() };
-            var dialog = new RowSelector(departments);
+            var crud = new DepartmentsCrudMethods(Context, ViewContext);
+            var dialog = new RowSelector(departments, crud);
             dialog.ShowDialog();
             Department = dialog.SelectedItem as Department;
             LoadData();

@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
-using Rrhh.Models;
 using Rrhh.Presenters;
 using Rrhh.Views.Candidates;
 using Rrhh.Views.Departments;
@@ -47,7 +44,7 @@ namespace Rrhh.Views.Home
             var presenter = new CandidatesPresenter(controller.List());
 
             var crudMethods = new CrudCandidatesMethods(Context, ViewContext);
-            var dataSource = new BindingSource { DataSource = presenter.Candidates };
+            var dataSource = new BindingSource { DataSource = presenter.Models };
             var view = new CrudModels(ViewContext, dataSource, crudMethods);
             NavigateTo(view);
         }
@@ -105,9 +102,9 @@ namespace Rrhh.Views.Home
         private void listToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var controller = new JobsController(Context);
-
+            var presenter = new JobsPresenter(controller.List());
             var crudMethods = new JobsCrudMethods(Context, ViewContext);
-            var dataSource = new BindingSource { DataSource = controller.List() };
+            var dataSource = new BindingSource { DataSource = presenter.Models };
             var view = new CrudModels(ViewContext, dataSource, crudMethods);
             NavigateTo(view);
         }
@@ -115,8 +112,9 @@ namespace Rrhh.Views.Home
         private void listToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var controller = new DepartmentsController(Context);
+            var presenter = new DepartmentsPresenter(controller.List());
             var crudMethods = new DepartmentsCrudMethods(Context, ViewContext);
-            var datasource = new BindingSource {DataSource = controller.List()};
+            var datasource = new BindingSource {DataSource = presenter.Models};
             var view = new CrudModels(ViewContext, datasource, crudMethods);
             NavigateTo(view);
         }

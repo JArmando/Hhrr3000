@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Rrhh.Migrations;
 using Rrhh.Models;
+using Rrhh.Views.Competences;
 using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Resumes
@@ -34,7 +35,8 @@ namespace Rrhh.Views.Resumes
 
             //Resume.Competences.Add(dialog.NewBasicCompetence);
             var source = new BindingSource { DataSource = dataContext.Competences.ToList() };
-            var dialog = new RowSelector(source);
+            var crud = new CompetencesCrudMethods(dataContext, ViewContext);
+            var dialog = new RowSelector(source, crud);
             dialog.ShowDialog();
             Resume.Competences.Add(dialog.SelectedItem as BasicCompetence);
             RefreshData();

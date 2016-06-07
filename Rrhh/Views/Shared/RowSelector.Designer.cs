@@ -30,6 +30,7 @@
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.SelectBtn = new System.Windows.Forms.Button();
+            this.CreateNewBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,11 +54,22 @@
             this.SelectBtn.UseVisualStyleBackColor = true;
             this.SelectBtn.Click += new System.EventHandler(this.SelectBtn_Click);
             // 
+            // CreateNewBtn
+            // 
+            this.CreateNewBtn.Location = new System.Drawing.Point(84, 36);
+            this.CreateNewBtn.Name = "CreateNewBtn";
+            this.CreateNewBtn.Size = new System.Drawing.Size(172, 48);
+            this.CreateNewBtn.TabIndex = 2;
+            this.CreateNewBtn.Text = "Create new";
+            this.CreateNewBtn.UseVisualStyleBackColor = true;
+            this.CreateNewBtn.Click += new System.EventHandler(this.CreateNewBtn_Click);
+            // 
             // RowSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(594, 439);
+            this.Controls.Add(this.CreateNewBtn);
             this.Controls.Add(this.SelectBtn);
             this.Controls.Add(this.dataGridView);
             this.Name = "RowSelector";
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button SelectBtn;
+        private System.Windows.Forms.Button CreateNewBtn;
     }
 }

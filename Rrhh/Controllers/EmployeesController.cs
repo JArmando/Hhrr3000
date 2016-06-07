@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Windows.Forms.VisualStyles;
 using Rrhh.Migrations;
 using Rrhh.Models;
 

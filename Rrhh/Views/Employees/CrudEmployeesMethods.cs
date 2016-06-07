@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Models;
@@ -33,13 +28,9 @@ namespace Rrhh.Views.Employees
         {
             return x =>
             {
-                var view = MessageBox.Show(null, "Are you sure you want to delete this?", "WARNING", MessageBoxButtons.YesNo);
-                var result = false;
-
-                if (view != DialogResult.Yes) return result;
-
+                if (YouAreNotSureYouWantToDeleteThis()) return false;
                 var employee = x as Employee;
-                result = EmployeesController.Delete(Context, employee);
+                var result = EmployeesController.Delete(Context, employee);
                 if (employee != null) ViewContext.AddErrors($"Employee {employee.FirstName} deleted");
                 return result;
             };

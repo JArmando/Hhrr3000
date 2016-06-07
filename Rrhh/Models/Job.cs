@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Rrhh.Models
 {
@@ -11,5 +12,7 @@ namespace Rrhh.Models
 
         [Required]
         public Department Department { get; set; } = new Department();
+
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }
