@@ -25,7 +25,7 @@ namespace Rrhh.Views.Jobs
         private void selectDepartmentBtn_Click(object sender, EventArgs e)
         {
             var departments = new BindingSource {DataSource = Context.Departments.ToList()};
-            var crud = new DepartmentsCrudMethods(Context, ViewContext);
+            var crud = new DepartmentsCrudViews(Context, ViewContext);
             var dialog = new RowSelector(departments, crud);
             dialog.ShowDialog();
             Department = dialog.SelectedItem as Department;

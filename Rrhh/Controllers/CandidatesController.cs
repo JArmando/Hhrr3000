@@ -69,10 +69,15 @@ namespace Rrhh.Controllers
             return Dbset.Active();
         }
 
-        public Employee Hire(Candidate candidate)
+        public Employee Hire(Candidate candidate, DateTime startsOn)
         {
-            var employee = HireCandidate.Call(Context, candidate);
+            var employee = HireCandidate.Call(Context, candidate, startsOn);
             return employee;
+        }
+
+        public static Employee Hire(RrhhContext dataContext, Candidate candidate, DateTime startsOn)
+        {
+            return new CandidatesController(dataContext).Hire(candidate, startsOn);
         }
 
         public IEnumerable<PresentedCandidate> Filter(string searchParam)
@@ -94,15 +99,15 @@ namespace Rrhh.Controllers
             Context = context;
         }
 
-        public static Employee Call(RrhhContext Context, Candidate candidate)
+        public static Employee Call(RrhhContext Context, Candidate candidate, DateTime startsOn)
         {
-            return new HireCandidate(Context).Call(candidate);
+            return new HireCandidate(Context).Call(candidate, startsOn);
         }
 
-        private Employee Call(Candidate candidate)
+        private Employee Call(Candidate candidate, DateTime startsOn)
         {
             var employee = (Employee)candidate;
-            employee.HireDate = DateTime.Now;
+            employee.HireDate = startsOn;
             candidate.IsActive = false;
             if (employee.IsValid())
             {

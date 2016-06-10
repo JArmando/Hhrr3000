@@ -14,8 +14,8 @@ namespace Rrhh.Models
         #endregion
 
         #region UnMapped Properties
-        public virtual ICollection<Job> JobPositions { get; set; }
-        public virtual ICollection<JobOffer> JobOffers { get; set; }
+        public virtual ICollection<Job> JobPositions { get; set; } = new List<Job>();
+        public virtual ICollection<JobOffer> JobOffers { get; set; } = new List<JobOffer>();
         public virtual IEnumerable<Employee> Employees => JobPositions.SelectMany(x => x.Employees);
         #endregion
     }

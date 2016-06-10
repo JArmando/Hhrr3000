@@ -32,6 +32,7 @@
             this.EditBtn = new System.Windows.Forms.Button();
             this.ModelsList = new System.Windows.Forms.DataGridView();
             this.createNewButton = new System.Windows.Forms.Button();
+            this.SpecialActionBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ModelsList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,11 +80,23 @@
             this.createNewButton.UseVisualStyleBackColor = true;
             this.createNewButton.Click += new System.EventHandler(this.createNewButton_Click);
             // 
+            // SpecialActionBtn
+            // 
+            this.SpecialActionBtn.Location = new System.Drawing.Point(454, 65);
+            this.SpecialActionBtn.Name = "SpecialActionBtn";
+            this.SpecialActionBtn.Size = new System.Drawing.Size(104, 23);
+            this.SpecialActionBtn.TabIndex = 7;
+            this.SpecialActionBtn.Text = "--";
+            this.SpecialActionBtn.UseVisualStyleBackColor = true;
+            this.SpecialActionBtn.Visible = false;
+            this.SpecialActionBtn.Click += new System.EventHandler(this.SpecialActionBtn_Click);
+            // 
             // CrudModels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 477);
+            this.Controls.Add(this.SpecialActionBtn);
             this.Controls.Add(this.createNewButton);
             this.Controls.Add(this.DeleteBtn);
             this.Controls.Add(this.EditBtn);
@@ -101,5 +114,6 @@
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.DataGridView ModelsList;
         private System.Windows.Forms.Button createNewButton;
+        private System.Windows.Forms.Button SpecialActionBtn;
     }
 }

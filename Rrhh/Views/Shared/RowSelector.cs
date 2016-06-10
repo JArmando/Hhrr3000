@@ -7,14 +7,14 @@ namespace Rrhh.Views.Shared
     public partial class RowSelector : Form
     {
         private readonly BindingSource BindingSource;
-        private readonly CrudMethods CrudMethods;
+        private readonly CrudViews _crudViews;
         public Object SelectedItem;
 
-        public RowSelector(BindingSource bindingSource, CrudMethods crudMethods)
+        public RowSelector(BindingSource bindingSource, CrudViews crudViews)
         {
             InitializeComponent();
             BindingSource = bindingSource;
-            CrudMethods = crudMethods;
+            _crudViews = crudViews;
             LoadData();
         }
 
@@ -31,7 +31,7 @@ namespace Rrhh.Views.Shared
 
         private void CreateNewBtn_Click(object sender, EventArgs e)
         {
-            SelectedItem = CrudMethods.Create();
+            SelectedItem = _crudViews.Create();
             Close();
         }
     }

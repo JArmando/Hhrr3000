@@ -102,6 +102,14 @@
     <Compile Include="Migrations\201606040534581_Candidates.Designer.cs">
       <DependentUpon>201606040534581_Candidates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606071918234_JobRequirements.cs" />
+    <Compile Include="Migrations\201606071918234_JobRequirements.Designer.cs">
+      <DependentUpon>201606071918234_JobRequirements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606081234186_JobOffersRequiresJob.cs" />
+    <Compile Include="Migrations\201606081234186_JobOffersRequiresJob.Designer.cs">
+      <DependentUpon>201606081234186_JobOffersRequiresJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicCompetence.cs" />
     <Compile Include="Models\Competence.cs" />
@@ -130,7 +138,19 @@
     <Compile Include="Views\Candidates\EditCandidate.Designer.cs">
       <DependentUpon>EditCandidate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Candidates\HireCandidateView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Candidates\HireCandidateView.Designer.cs">
+      <DependentUpon>HireCandidateView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Competences\CompetencesCrudMethods.cs" />
+    <Compile Include="Views\Competences\EditCompetence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Competences\EditCompetence.Designer.cs">
+      <DependentUpon>EditCompetence.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Departments\DepartmentsCrudMethods.cs" />
     <Compile Include="Views\Employees\CrudEmployeesMethods.cs" />
     <Compile Include="Views\Employees\EditEmployee.cs">
@@ -139,6 +159,7 @@
     <Compile Include="Views\Employees\EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\JobOffers\JobOffersCrudMethods.cs" />
     <Compile Include="Views\Jobs\EditJob.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +167,13 @@
       <DependentUpon>EditJob.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Jobs\JobsCrudMethods.cs" />
+    <Compile Include="Views\Languages\LanguagesCrudViews.cs" />
+    <Compile Include="Views\Languages\NewLanguage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Languages\NewLanguage.Designer.cs">
+      <DependentUpon>NewLanguage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\BaseView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +264,12 @@
     <EmbeddedResource Include="Migrations\201606040534581_Candidates.resx">
       <DependentUpon>201606040534581_Candidates.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606071918234_JobRequirements.resx">
+      <DependentUpon>201606071918234_JobRequirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606081234186_JobOffersRequiresJob.resx">
+      <DependentUpon>201606081234186_JobOffersRequiresJob.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -248,11 +282,17 @@
     <EmbeddedResource Include="Views\Candidates\EditCandidate.resx">
       <DependentUpon>EditCandidate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Candidates\HireCandidateView.resx">
+      <DependentUpon>HireCandidateView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Candidates\ListCandidates.resx">
       <DependentUpon>ListCandidates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Candidates\NewCandidateView.resx">
       <DependentUpon>NewCandidateView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Competences\EditCompetence.resx">
+      <DependentUpon>EditCompetence.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Competences\NewCompetence.resx">
       <DependentUpon>NewCompetence.cs</DependentUpon>
@@ -280,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Jobs\NewJob.resx">
       <DependentUpon>NewJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Languages\NewLanguage.resx">
+      <DependentUpon>NewLanguage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Shared\CrudModels.resx">
       <DependentUpon>CrudModels.cs</DependentUpon>

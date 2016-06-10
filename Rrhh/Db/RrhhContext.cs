@@ -14,6 +14,7 @@ namespace Rrhh.Migrations
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<BasicCompetence> Competences { get; set; }
+        public DbSet<Language> Languages { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<JobOffer> JobOffers { get; set; }
 

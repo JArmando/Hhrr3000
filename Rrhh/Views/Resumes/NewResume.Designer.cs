@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.competencesGrid = new System.Windows.Forms.DataGridView();
+            this.AddCompetenceBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.languagesGrid = new System.Windows.Forms.DataGridView();
-            this.AddCompetenceBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.competencesGrid = new System.Windows.Forms.DataGridView();
+            this.AddLangBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.competencesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.languagesGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.competencesGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.AddLangBtn);
             this.groupBox1.Controls.Add(this.AddCompetenceBtn);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.languagesGrid);
@@ -53,22 +55,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // label1
+            // AddCompetenceBtn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Competencias";
-            // 
-            // competencesGrid
-            // 
-            this.competencesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.competencesGrid.Location = new System.Drawing.Point(29, 149);
-            this.competencesGrid.Name = "competencesGrid";
-            this.competencesGrid.Size = new System.Drawing.Size(240, 150);
-            this.competencesGrid.TabIndex = 0;
+            this.AddCompetenceBtn.Location = new System.Drawing.Point(189, 305);
+            this.AddCompetenceBtn.Name = "AddCompetenceBtn";
+            this.AddCompetenceBtn.Size = new System.Drawing.Size(80, 33);
+            this.AddCompetenceBtn.TabIndex = 4;
+            this.AddCompetenceBtn.Text = "Agregar";
+            this.AddCompetenceBtn.UseVisualStyleBackColor = true;
+            this.AddCompetenceBtn.Click += new System.EventHandler(this.Agregar_Click);
             // 
             // label2
             // 
@@ -87,15 +82,32 @@
             this.languagesGrid.Size = new System.Drawing.Size(240, 150);
             this.languagesGrid.TabIndex = 2;
             // 
-            // AddCompetenceBtn
+            // label1
             // 
-            this.AddCompetenceBtn.Location = new System.Drawing.Point(189, 305);
-            this.AddCompetenceBtn.Name = "AddCompetenceBtn";
-            this.AddCompetenceBtn.Size = new System.Drawing.Size(80, 33);
-            this.AddCompetenceBtn.TabIndex = 4;
-            this.AddCompetenceBtn.Text = "Agregar";
-            this.AddCompetenceBtn.UseVisualStyleBackColor = true;
-            this.AddCompetenceBtn.Click += new System.EventHandler(this.Agregar_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(112, 123);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Competencias";
+            // 
+            // competencesGrid
+            // 
+            this.competencesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.competencesGrid.Location = new System.Drawing.Point(29, 149);
+            this.competencesGrid.Name = "competencesGrid";
+            this.competencesGrid.Size = new System.Drawing.Size(240, 150);
+            this.competencesGrid.TabIndex = 0;
+            // 
+            // AddLangBtn
+            // 
+            this.AddLangBtn.Location = new System.Drawing.Point(460, 305);
+            this.AddLangBtn.Name = "AddLangBtn";
+            this.AddLangBtn.Size = new System.Drawing.Size(80, 33);
+            this.AddLangBtn.TabIndex = 5;
+            this.AddLangBtn.Text = "Agregar";
+            this.AddLangBtn.UseVisualStyleBackColor = true;
+            this.AddLangBtn.Click += new System.EventHandler(this.AddLangBtn_Click);
             // 
             // NewResume
             // 
@@ -108,8 +120,8 @@
             this.Load += new System.EventHandler(this.NewResume_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.competencesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.languagesGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.competencesGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Button AddCompetenceBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView languagesGrid;
+        private System.Windows.Forms.Button AddLangBtn;
     }
 }

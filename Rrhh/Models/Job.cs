@@ -13,6 +13,6 @@ namespace Rrhh.Models
         [Required]
         public Department Department { get; set; } = new Department();
 
-        public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
     }
 }

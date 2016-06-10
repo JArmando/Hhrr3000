@@ -9,12 +9,12 @@ namespace Rrhh.Views.Shared
     public partial class CrudModels : BaseView
     {
         private readonly BindingSource _bindingSource;
-        private readonly CrudMethods _crudMethods;
+        private readonly CrudViews _crudViews;
 
-        public CrudModels(ViewContext viewContext, BindingSource source, CrudMethods crudMethods )
+        public CrudModels(ViewContext viewContext, BindingSource source, CrudViews crudViews )
         {
             InitializeComponent();
-            _crudMethods = crudMethods;
+            _crudViews = crudViews;
             ViewContext = viewContext;
             _bindingSource = source;
             LoadData();
@@ -25,11 +25,11 @@ namespace Rrhh.Views.Shared
             var selectedItem = ModelsList.SelectedRows[0].DataBoundItem;
             if (selectedItem is PresentedModel)
             {
-                _crudMethods.Edit((selectedItem as PresentedModel).UnWrappModel());
+                _crudViews.Edit((selectedItem as PresentedModel).UnWrappModel());
             }
             else
             {
-                _crudMethods.Edit(selectedItem as BaseModel);
+                _crudViews.Edit(selectedItem as BaseModel);
             }
         }
 
@@ -38,23 +38,42 @@ namespace Rrhh.Views.Shared
             var selectedItem = ModelsList.SelectedRows[0].DataBoundItem;
             if (selectedItem is PresentedModel)
             {
-                _crudMethods.Delete((selectedItem as PresentedModel).UnWrappModel());
+                _crudViews.Delete((selectedItem as PresentedModel).UnWrappModel());
             }
             else
             {
-                _crudMethods.Delete(selectedItem as BaseModel);
+                _crudViews.Delete(selectedItem as BaseModel);
             }
-            //processResult(result);
         }
 
         private void createNewButton_Click(object sender, EventArgs e)
         {
-            _crudMethods.Create();
+            _crudViews.Create();
         }
 
         private void LoadData()
         {
             ModelsList.DataSource = _bindingSource;
+
+            if (_crudViews.EspecialActionName != null)
+            {
+                SpecialActionBtn.Visible = true;
+                SpecialActionBtn.Text = _crudViews.EspecialActionName;
+            }
+        }
+
+        private void SpecialActionBtn_Click(object sender, EventArgs e)
+        {
+            var selectedItem = ModelsList.SelectedRows[0].DataBoundItem;
+            if (selectedItem is PresentedModel)
+            {
+                _crudViews.EspecialAction((selectedItem as PresentedModel).UnWrappModel());
+            }
+            else
+            {
+                _crudViews.EspecialAction(selectedItem as BaseModel);
+            }
+
         }
     }
 }

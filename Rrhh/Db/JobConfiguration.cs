@@ -10,6 +10,7 @@ namespace Rrhh.Db
             Property(p => p.Id).HasColumnName("JobId");
             Property(p => p.Name).IsRequired();
             Property(p => p.Description).IsRequired();
+            HasRequired(p => p.Department);
         }
     }
 }

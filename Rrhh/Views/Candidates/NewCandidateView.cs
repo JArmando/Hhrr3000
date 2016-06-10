@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Rrhh.Controllers;
 using Rrhh.Migrations;
 using Rrhh.Models;
+using Rrhh.Views.JobOffers;
 using Rrhh.Views.Jobs;
 using Rrhh.Views.Resumes;
 using Rrhh.Views.Shared;
@@ -42,7 +43,12 @@ namespace Rrhh.Views
             var dialog = new NewResume(Context, ViewContext, Resume);
             dialog.ShowDialog();
             Resume = dialog.Resume;
-            if (ResumeIsAttached()) EnableBtn(AddCandidateBtn);
+            if (ResumeIsAttached() && JobIsSelected()) EnableBtn(AddCandidateBtn);
+        }
+
+        private bool JobIsSelected()
+        {
+            return JobOffer != null;
         }
 
         private bool ResumeIsAttached()
@@ -59,7 +65,7 @@ namespace Rrhh.Views
         {
             var bindingSource = new BindingSource { DataSource = Context.JobOffers.ToList()};
             // please use the controller's list method
-            var crud = new JobsCrudMethods(Context, ViewContext);
+            var crud = new JobOffersCrudViews(Context, ViewContext);
             var dialog = new RowSelector(bindingSource, crud);
             dialog.ShowDialog();
             JobOffer = dialog.SelectedItem as JobOffer;

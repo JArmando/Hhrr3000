@@ -24,7 +24,7 @@ namespace Rrhh.Presenters
 
     public class PresentedEmployee : PresentedModel
     {
-        public PresentedEmployee(BaseModel model) : base(model)
+        public PresentedEmployee(Employee model) : base(model)
         {
         }
 

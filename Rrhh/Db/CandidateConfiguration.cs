@@ -9,7 +9,8 @@ namespace Rrhh.Db
         {
             Property(p => p.Id).HasColumnName("CandidateId").IsRequired();
             Property(p => p.ResumeId);
-            HasOptional(p => p.JobOfferAspiration);
+            HasRequired(p => p.JobOfferAspiration);
+            HasRequired(p => p.Resume);
             ToTable("Candidates");
         }
     }

@@ -29,8 +29,8 @@ namespace Rrhh.Views.Candidates
         {
             foreach (DataGridViewRow selectedRow in CandidatesGrid.SelectedRows)
             {
-                var employee = Controller.Hire(selectedRow.DataBoundItem as Candidate);
-                ViewContext.AddErrors(employee);
+                //var employee = Controller.Hire(selectedRow.DataBoundItem as Candidate);
+                //ViewContext.AddErrors(employee);
             }
             //notify that the candidates were hired and get out of this view
         }

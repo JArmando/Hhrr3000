@@ -1,14 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Rrhh.Migrations;
 using Rrhh.Models;
 using Rrhh.Views.Candidates;
 using Rrhh.Views.Shared;
 
-namespace Rrhh.Views.Competences
+namespace Rrhh.Views.Languages
 {
-    public class CompetencesCrudViews : CrudViews
+    public class LanguagesCrudViews : CrudViews
     {
-        public CompetencesCrudViews(RrhhContext dataContext, ViewContext viewContext) : base(dataContext, viewContext){}
+        public LanguagesCrudViews(RrhhContext dataContext, ViewContext viewContext) : base(dataContext, viewContext)
+        {
+        }
 
         protected override Func<BaseModel, BaseModel> ConstructEditFunction()
         {
@@ -17,7 +23,7 @@ namespace Rrhh.Views.Competences
 
         protected override Func<BaseModel, bool> ConstructDeleteFunction()
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         protected override Func<BaseModel, BaseModel> ConstructEspecialFunction()
@@ -29,7 +35,7 @@ namespace Rrhh.Views.Competences
         {
             return () =>
             {
-                var view = new NewCompetence();
+                var view = new NewLanguage(ViewContext);
                 view.ShowDialog();
                 return view.Model;
             };

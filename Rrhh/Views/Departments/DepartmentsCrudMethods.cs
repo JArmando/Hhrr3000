@@ -8,13 +8,9 @@ using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Departments
 {
-    public class DepartmentsCrudMethods : CrudMethods
+    public class DepartmentsCrudViews : CrudViews
     {
-        public DepartmentsCrudMethods(RrhhContext context, ViewContext viewContext)
-        {
-            Context = context;
-            ViewContext = viewContext;
-        }
+        public DepartmentsCrudViews(RrhhContext dataContext, ViewContext viewContext) : base(dataContext, viewContext){}
 
         protected override Func<BaseModel, BaseModel> ConstructEditFunction()
         {
@@ -31,17 +27,22 @@ namespace Rrhh.Views.Departments
                 if (view != DialogResult.Yes) return result;
 
                 var department = x as Department;
-                result = DepartmentsController.Delete(Context, department);
+                result = DepartmentsController.Delete(DataContext, department);
                 if (department != null) ViewContext.AddErrors($"Department {department.Name} deleted");
                 return result;
             };
+        }
+
+        protected override Func<BaseModel, BaseModel> ConstructEspecialFunction()
+        {
+            return null;
         }
 
         protected override Func<BaseModel> ConstructCreateFunction()
         {
             return () =>
             {
-                var view = new NewDepartment(ViewContext, new DepartmentsController(Context));
+                var view = new NewDepartment(ViewContext, new DepartmentsController(DataContext));
                 view.ShowDialog();
                 return view.Department;
             };

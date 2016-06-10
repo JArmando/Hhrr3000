@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Rrhh.Migrations;
 using Rrhh.Models;
 using Rrhh.Views.Competences;
+using Rrhh.Views.Languages;
 using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Resumes
@@ -28,14 +29,14 @@ namespace Rrhh.Views.Resumes
 
         private void Agregar_Click(object sender, EventArgs e)
         {
-            //var dialog = new CompetencesCrudMethods();
+            //var dialog = new CompetencesCrudViews();
             //dialog.ShowDialog();
 
-           // var crudMethods = new CompetencesCrudMethods(Context);
+           // var CrudViews = new CompetencesCrudViews(DataContext);
 
             //Resume.Competences.Add(dialog.NewBasicCompetence);
             var source = new BindingSource { DataSource = dataContext.Competences.ToList() };
-            var crud = new CompetencesCrudMethods(dataContext, ViewContext);
+            var crud = new CompetencesCrudViews(dataContext, ViewContext);
             var dialog = new RowSelector(source, crud);
             dialog.ShowDialog();
             Resume.Competences.Add(dialog.SelectedItem as BasicCompetence);
@@ -46,6 +47,16 @@ namespace Rrhh.Views.Resumes
         {
             competencesGrid.DataSource = new BindingSource {DataSource = Resume.Competences};
             languagesGrid.DataSource = Resume.Languages;
+        }
+
+        private void AddLangBtn_Click(object sender, EventArgs e)
+        {
+            var source = new BindingSource { DataSource = dataContext.Languages.ToList() };
+            var crud = new LanguagesCrudViews(dataContext, ViewContext);
+            var dialog = new RowSelector(source, crud);
+            dialog.ShowDialog();
+            Resume.Languages.Add(dialog.SelectedItem as Language);
+            RefreshData();
         }
     }
 }

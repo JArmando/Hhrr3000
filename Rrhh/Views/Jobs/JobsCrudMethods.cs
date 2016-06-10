@@ -8,20 +8,16 @@ using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Jobs
 {
-    public class JobsCrudMethods : CrudMethods
+    public class JobsCrudViews : CrudViews
     {
-        private JobsController Controller => new JobsController(Context);
-        public JobsCrudMethods(RrhhContext context, ViewContext viewContext)
-        {
-            Context = context;
-            ViewContext = viewContext;
-        }
+        private JobsController Controller => new JobsController(DataContext);
+        public JobsCrudViews(RrhhContext dataContext, ViewContext viewContext) : base(dataContext, viewContext){}
 
         protected override Func<BaseModel, BaseModel> ConstructEditFunction()
         {
             return (x) =>
             {
-                var view = new EditJob(ViewContext, new JobsController(Context), x as Job);
+                var view = new EditJob(ViewContext, new JobsController(DataContext), x as Job);
                 view.ShowDialog();
                 return x;
             };
@@ -42,6 +38,11 @@ namespace Rrhh.Views.Jobs
                 if (job != null) ViewContext.AddErrors($"Job {job.Name} deleted");
                 return result;
             };
+        }
+
+        protected override Func<BaseModel, BaseModel> ConstructEspecialFunction()
+        {
+            return null;
         }
 
         protected override Func<BaseModel> ConstructCreateFunction()

@@ -39,11 +39,11 @@ namespace Rrhh.Views.Home
 
         private void ListCandidatesBtn_Click(object sender, EventArgs e)
         {
-            //var view = new ListCandidates(ViewContext, new CandidatesController(Context));
+            //var view = new ListCandidates(ViewContext, new CandidatesController(DataContext));
             var controller = new CandidatesController(Context);
             var presenter = new CandidatesPresenter(controller.List());
 
-            var crudMethods = new CrudCandidatesMethods(Context, ViewContext);
+            var crudMethods = new CrudCandidatesViews(Context, ViewContext);
             var dataSource = new BindingSource { DataSource = presenter.Models };
             var view = new CrudModels(ViewContext, dataSource, crudMethods);
             NavigateTo(view);
@@ -58,7 +58,7 @@ namespace Rrhh.Views.Home
         {
             var controller = new EmployeesController(Context);
             var presenter = new EmployeesPresenter(controller.List());
-            var crudMethods = new CrudEmployeesMethods(Context, ViewContext);
+            var crudMethods = new CrudEmployeesViews(Context, ViewContext);
             var dataSource = new BindingSource { DataSource = presenter.Employees};
             
             var view = new CrudModels(ViewContext, dataSource, crudMethods);
@@ -95,7 +95,7 @@ namespace Rrhh.Views.Home
 
         private void modifyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //var view = new EditEmployee(ViewContext, new EmployeesController(Context) );
+            //var view = new EditEmployee(ViewContext, new EmployeesController(DataContext) );
             //NavigateTo(view);
         }
 
@@ -103,7 +103,7 @@ namespace Rrhh.Views.Home
         {
             var controller = new JobsController(Context);
             var presenter = new JobsPresenter(controller.List());
-            var crudMethods = new JobsCrudMethods(Context, ViewContext);
+            var crudMethods = new JobsCrudViews(Context, ViewContext);
             var dataSource = new BindingSource { DataSource = presenter.Models };
             var view = new CrudModels(ViewContext, dataSource, crudMethods);
             NavigateTo(view);
@@ -113,7 +113,7 @@ namespace Rrhh.Views.Home
         {
             var controller = new DepartmentsController(Context);
             var presenter = new DepartmentsPresenter(controller.List());
-            var crudMethods = new DepartmentsCrudMethods(Context, ViewContext);
+            var crudMethods = new DepartmentsCrudViews(Context, ViewContext);
             var datasource = new BindingSource {DataSource = presenter.Models};
             var view = new CrudModels(ViewContext, datasource, crudMethods);
             NavigateTo(view);
