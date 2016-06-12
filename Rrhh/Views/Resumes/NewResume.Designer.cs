@@ -29,79 +29,31 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.AddCompetenceBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.languagesGrid = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.competencesGrid = new System.Windows.Forms.DataGridView();
             this.AddLangBtn = new System.Windows.Forms.Button();
+            this.AddCompetenceBtn = new System.Windows.Forms.Button();
+            this.languagesGrid = new System.Windows.Forms.DataGridView();
+            this.competencesGrid = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.languagesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencesGrid)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.AddLangBtn);
             this.groupBox1.Controls.Add(this.AddCompetenceBtn);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.languagesGrid);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.competencesGrid);
-            this.groupBox1.Location = new System.Drawing.Point(38, 94);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(589, 353);
+            this.groupBox1.Size = new System.Drawing.Size(594, 111);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // AddCompetenceBtn
-            // 
-            this.AddCompetenceBtn.Location = new System.Drawing.Point(189, 305);
-            this.AddCompetenceBtn.Name = "AddCompetenceBtn";
-            this.AddCompetenceBtn.Size = new System.Drawing.Size(80, 33);
-            this.AddCompetenceBtn.TabIndex = 4;
-            this.AddCompetenceBtn.Text = "Agregar";
-            this.AddCompetenceBtn.UseVisualStyleBackColor = true;
-            this.AddCompetenceBtn.Click += new System.EventHandler(this.Agregar_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(383, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Idiomas";
-            // 
-            // languagesGrid
-            // 
-            this.languagesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.languagesGrid.Location = new System.Drawing.Point(300, 149);
-            this.languagesGrid.Name = "languagesGrid";
-            this.languagesGrid.Size = new System.Drawing.Size(240, 150);
-            this.languagesGrid.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Competencias";
-            // 
-            // competencesGrid
-            // 
-            this.competencesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.competencesGrid.Location = new System.Drawing.Point(29, 149);
-            this.competencesGrid.Name = "competencesGrid";
-            this.competencesGrid.Size = new System.Drawing.Size(240, 150);
-            this.competencesGrid.TabIndex = 0;
+            this.groupBox1.Text = "Competencias";
             // 
             // AddLangBtn
             // 
-            this.AddLangBtn.Location = new System.Drawing.Point(460, 305);
+            this.AddLangBtn.Location = new System.Drawing.Point(503, 45);
             this.AddLangBtn.Name = "AddLangBtn";
             this.AddLangBtn.Size = new System.Drawing.Size(80, 33);
             this.AddLangBtn.TabIndex = 5;
@@ -109,19 +61,57 @@
             this.AddLangBtn.UseVisualStyleBackColor = true;
             this.AddLangBtn.Click += new System.EventHandler(this.AddLangBtn_Click);
             // 
+            // AddCompetenceBtn
+            // 
+            this.AddCompetenceBtn.Location = new System.Drawing.Point(503, 44);
+            this.AddCompetenceBtn.Name = "AddCompetenceBtn";
+            this.AddCompetenceBtn.Size = new System.Drawing.Size(80, 33);
+            this.AddCompetenceBtn.TabIndex = 4;
+            this.AddCompetenceBtn.Text = "Agregar";
+            this.AddCompetenceBtn.UseVisualStyleBackColor = true;
+            this.AddCompetenceBtn.Click += new System.EventHandler(this.Agregar_Click);
+            // 
+            // languagesGrid
+            // 
+            this.languagesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.languagesGrid.Location = new System.Drawing.Point(17, 21);
+            this.languagesGrid.Name = "languagesGrid";
+            this.languagesGrid.Size = new System.Drawing.Size(472, 77);
+            this.languagesGrid.TabIndex = 2;
+            // 
+            // competencesGrid
+            // 
+            this.competencesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.competencesGrid.Location = new System.Drawing.Point(17, 19);
+            this.competencesGrid.Name = "competencesGrid";
+            this.competencesGrid.Size = new System.Drawing.Size(472, 76);
+            this.competencesGrid.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.languagesGrid);
+            this.groupBox2.Controls.Add(this.AddLangBtn);
+            this.groupBox2.Location = new System.Drawing.Point(12, 145);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(594, 115);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Idiomas";
+            // 
             // NewResume
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 515);
+            this.ClientSize = new System.Drawing.Size(631, 286);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "NewResume";
             this.Text = "NewResume";
             this.Load += new System.EventHandler(this.NewResume_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.languagesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.competencesGrid)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -130,10 +120,9 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView competencesGrid;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddCompetenceBtn;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView languagesGrid;
         private System.Windows.Forms.Button AddLangBtn;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

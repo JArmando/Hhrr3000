@@ -3,6 +3,7 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using Rrhh.Migrations;
 using Rrhh.Models;
+using Rrhh.Presenters;
 
 namespace Rrhh.Controllers
 {
@@ -41,6 +42,17 @@ namespace Rrhh.Controllers
         public IEnumerable<Job> List()
         {
             return Context.Jobs.ToList();
+        }
+
+        public IEnumerable<PresentedModel> Filter(string s)
+        {
+            var result = Dbset.Active().Where(x =>
+                          x.Name.Contains(s) ||
+                          x.Description.Contains(s) ||
+                          x.Department.Name.Contains(s) ||
+                          x.Department.Description.Contains(s)
+                        );
+            return new JobsPresenter(result).Models;
         }
     }
 }

@@ -37,7 +37,7 @@
             // 
             // AddCompetenceBtn
             // 
-            this.AddCompetenceBtn.Location = new System.Drawing.Point(122, 109);
+            this.AddCompetenceBtn.Location = new System.Drawing.Point(104, 85);
             this.AddCompetenceBtn.Name = "AddCompetenceBtn";
             this.AddCompetenceBtn.Size = new System.Drawing.Size(75, 23);
             this.AddCompetenceBtn.TabIndex = 0;
@@ -48,7 +48,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 42);
+            this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // NameTxtBox
             // 
-            this.NameTxtBox.Location = new System.Drawing.Point(97, 39);
+            this.NameTxtBox.Location = new System.Drawing.Point(79, 15);
             this.NameTxtBox.Name = "NameTxtBox";
             this.NameTxtBox.Size = new System.Drawing.Size(100, 20);
             this.NameTxtBox.TabIndex = 2;
@@ -64,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 62);
+            this.label2.Location = new System.Drawing.Point(12, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 3;
@@ -72,7 +72,7 @@
             // 
             // DescriptionTxtBox
             // 
-            this.DescriptionTxtBox.Location = new System.Drawing.Point(97, 66);
+            this.DescriptionTxtBox.Location = new System.Drawing.Point(79, 42);
             this.DescriptionTxtBox.Name = "DescriptionTxtBox";
             this.DescriptionTxtBox.Size = new System.Drawing.Size(100, 20);
             this.DescriptionTxtBox.TabIndex = 4;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(235, 163);
+            this.ClientSize = new System.Drawing.Size(195, 121);
             this.Controls.Add(this.DescriptionTxtBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NameTxtBox);

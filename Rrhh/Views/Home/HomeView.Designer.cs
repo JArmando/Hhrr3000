@@ -46,6 +46,8 @@
             this.listToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.TheBox = new System.Windows.Forms.GroupBox();
             this.InfoBox = new System.Windows.Forms.RichTextBox();
+            this.languagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.topMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +65,8 @@
             this.MainCandidatesMenu,
             this.batidaToolStripMenuItem,
             this.jobOffersToolStripMenuItem,
-            this.departmentsToolStripMenuItem});
+            this.departmentsToolStripMenuItem,
+            this.languagesToolStripMenuItem});
             this.topMenu.Location = new System.Drawing.Point(0, 0);
             this.topMenu.Name = "topMenu";
             this.topMenu.Size = new System.Drawing.Size(903, 24);
@@ -82,14 +85,14 @@
             // AddNewCandidateBtn
             // 
             this.AddNewCandidateBtn.Name = "AddNewCandidateBtn";
-            this.AddNewCandidateBtn.Size = new System.Drawing.Size(152, 22);
+            this.AddNewCandidateBtn.Size = new System.Drawing.Size(121, 22);
             this.AddNewCandidateBtn.Text = "Add new";
             this.AddNewCandidateBtn.Click += new System.EventHandler(this.AddNewCandidateBtn_Click);
             // 
             // ListCandidatesBtn
             // 
             this.ListCandidatesBtn.Name = "ListCandidatesBtn";
-            this.ListCandidatesBtn.Size = new System.Drawing.Size(152, 22);
+            this.ListCandidatesBtn.Size = new System.Drawing.Size(121, 22);
             this.ListCandidatesBtn.Text = "List";
             this.ListCandidatesBtn.Click += new System.EventHandler(this.ListCandidatesBtn_Click);
             // 
@@ -106,21 +109,21 @@
             // EmployeeNewToolStrip
             // 
             this.EmployeeNewToolStrip.Name = "EmployeeNewToolStrip";
-            this.EmployeeNewToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.EmployeeNewToolStrip.Size = new System.Drawing.Size(133, 22);
             this.EmployeeNewToolStrip.Text = "Create new";
             this.EmployeeNewToolStrip.Click += new System.EventHandler(this.EmployeeNewToolStrip_Click);
             // 
             // EmployeeListToolStrip
             // 
             this.EmployeeListToolStrip.Name = "EmployeeListToolStrip";
-            this.EmployeeListToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.EmployeeListToolStrip.Size = new System.Drawing.Size(133, 22);
             this.EmployeeListToolStrip.Text = "List";
             this.EmployeeListToolStrip.Click += new System.EventHandler(this.EmployeeListToolStrip_Click);
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             this.modifyToolStripMenuItem.Click += new System.EventHandler(this.modifyToolStripMenuItem_Click);
             // 
@@ -183,9 +186,9 @@
             this.TheBox.AutoSize = true;
             this.TheBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.TheBox.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TheBox.Location = new System.Drawing.Point(0, 515);
+            this.TheBox.Location = new System.Drawing.Point(0, 529);
             this.TheBox.Name = "TheBox";
-            this.TheBox.Size = new System.Drawing.Size(903, 19);
+            this.TheBox.Size = new System.Drawing.Size(903, 5);
             this.TheBox.TabIndex = 2;
             this.TheBox.TabStop = false;
             this.TheBox.Text = "TheBox";
@@ -198,6 +201,21 @@
             this.InfoBox.Size = new System.Drawing.Size(485, 38);
             this.InfoBox.TabIndex = 0;
             this.InfoBox.Text = "";
+            // 
+            // languagesToolStripMenuItem
+            // 
+            this.languagesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNewToolStripMenuItem});
+            this.languagesToolStripMenuItem.Name = "languagesToolStripMenuItem";
+            this.languagesToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.languagesToolStripMenuItem.Text = "Languages";
+            // 
+            // addNewToolStripMenuItem
+            // 
+            this.addNewToolStripMenuItem.Name = "addNewToolStripMenuItem";
+            this.addNewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addNewToolStripMenuItem.Text = "Add new";
+            this.addNewToolStripMenuItem.Click += new System.EventHandler(this.addNewToolStripMenuItem_Click);
             // 
             // HomeView
             // 
@@ -239,5 +257,7 @@
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem languagesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewToolStripMenuItem;
     }
 }

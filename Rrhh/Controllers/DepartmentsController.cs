@@ -2,6 +2,7 @@
 using System.Linq;
 using Rrhh.Migrations;
 using Rrhh.Models;
+using Rrhh.Presenters;
 
 namespace Rrhh.Controllers
 {
@@ -41,6 +42,15 @@ namespace Rrhh.Controllers
         public IEnumerable<Department> List()
         {
             return Context.Departments.ToList();
+        }
+
+        public IEnumerable<PresentedModel> Filter(string s)
+        {
+            var result = Dbset.Where(x => 
+                x.Name.Contains(s) ||
+                x.Description.Contains(s)
+            );
+            return new DepartmentsPresenter(result).Models;
         }
     }
 }

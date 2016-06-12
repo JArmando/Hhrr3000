@@ -6,17 +6,17 @@ namespace Rrhh.Presenters
 {
     public class EmployeesPresenter
     {
-        private IEnumerable<Employee> _employees;
+        private readonly IEnumerable<Employee> _models;
         public IEnumerable<PresentedEmployee> Employees => Present();
         private IEnumerable<PresentedEmployee> _presentedCandidates;
         public EmployeesPresenter(IEnumerable<Employee> employees)
         {
-            _employees = employees;
+            _models = employees;
         }
 
         private IEnumerable<PresentedEmployee> Present()
         {
-            _presentedCandidates = _presentedCandidates ?? _employees.Select(x => new PresentedEmployee(x));
+            _presentedCandidates = _presentedCandidates ?? _models.Select(x => new PresentedEmployee(x));
             return _presentedCandidates;
         }
 

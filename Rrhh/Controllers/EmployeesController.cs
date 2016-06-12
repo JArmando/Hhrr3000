@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Linq;
 using Rrhh.Migrations;
 using Rrhh.Models;
+using Rrhh.Presenters;
 
 namespace Rrhh.Controllers
 {
@@ -65,6 +67,15 @@ namespace Rrhh.Controllers
         public IEnumerable<Employee> List()
         {
             return Context.Employees;
+        }
+
+        public IEnumerable<PresentedModel> Filter(string s)
+        {
+            var result = Context.Employees.Active().Where(x =>
+                x.Job.Name.Contains(s) ||
+                x.Job.Description.Contains(s)
+                );
+            return new EmployeesPresenter(result).Employees;// as IEnumerable<PresentedEmployee>;
         }
     }
 }

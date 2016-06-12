@@ -14,5 +14,11 @@ namespace Rrhh.Models
         public Guid JobId { get; set; }
         [Required]
         public virtual Job Job { get; set; }
+
+        public new bool IsValid()
+        {
+            var result = Job.IsValid() && base.IsValid();
+            return result;
+        }
     }
 }

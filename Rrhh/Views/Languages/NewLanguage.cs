@@ -12,13 +12,12 @@ using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Languages
 {
-    public partial class NewLanguage : BaseView
+    public partial class NewLanguage : Form
     {
         public Language Model = new Language();
-        public NewLanguage(ViewContext viewContext) : base(viewContext)
+        public NewLanguage()
         {
             InitializeComponent();
-
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using Rrhh.Views.Departments;
 using Rrhh.Views.Employees;
 using Rrhh.Views.JobOffers;
 using Rrhh.Views.Jobs;
+using Rrhh.Views.Languages;
 using Rrhh.Views.Shared;
 
 namespace Rrhh.Views.Home
@@ -45,7 +46,7 @@ namespace Rrhh.Views.Home
 
             var crudMethods = new CrudCandidatesViews(Context, ViewContext);
             var dataSource = new BindingSource { DataSource = presenter.Models };
-            var view = new CrudModels(ViewContext, dataSource, crudMethods);
+            var view = new CrudModels(ViewContext, dataSource, crudMethods, x => controller.Filter(x));
             NavigateTo(view);
         }
 
@@ -61,7 +62,7 @@ namespace Rrhh.Views.Home
             var crudMethods = new CrudEmployeesViews(Context, ViewContext);
             var dataSource = new BindingSource { DataSource = presenter.Employees};
             
-            var view = new CrudModels(ViewContext, dataSource, crudMethods);
+            var view = new CrudModels(ViewContext, dataSource, crudMethods, x => controller.Filter(x));
             NavigateTo(view);
         }
 
@@ -77,7 +78,10 @@ namespace Rrhh.Views.Home
 
         private void createJobOfferToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var view = new NewJobOffer(ViewContext, new JobOffersController(Context));
+            var controller = new JobOffersController(Context);
+            var crudMethods = new JobOffersCrudViews(Context, ViewContext);
+            var dataSource = new BindingSource { DataSource = controller.List() };
+            var view = new CrudModels(ViewContext, dataSource, crudMethods, x => controller.Filter(x));
             NavigateTo(view);
         }
 
@@ -105,7 +109,7 @@ namespace Rrhh.Views.Home
             var presenter = new JobsPresenter(controller.List());
             var crudMethods = new JobsCrudViews(Context, ViewContext);
             var dataSource = new BindingSource { DataSource = presenter.Models };
-            var view = new CrudModels(ViewContext, dataSource, crudMethods);
+            var view = new CrudModels(ViewContext, dataSource, crudMethods, x => controller.Filter(x));
             NavigateTo(view);
         }
 
@@ -115,8 +119,16 @@ namespace Rrhh.Views.Home
             var presenter = new DepartmentsPresenter(controller.List());
             var crudMethods = new DepartmentsCrudViews(Context, ViewContext);
             var datasource = new BindingSource {DataSource = presenter.Models};
-            var view = new CrudModels(ViewContext, datasource, crudMethods);
+            var view = new CrudModels(ViewContext, datasource, crudMethods, x => controller.Filter(x));
             NavigateTo(view);
+        }
+
+        private void addNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var view = new NewLanguage();
+            view.ShowDialog();
+            Context.Languages.Add(view.Model);
+            Context.SaveChanges();
         }
     }
 }

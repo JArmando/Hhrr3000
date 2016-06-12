@@ -29,7 +29,6 @@ namespace Rrhh.Migrations
             modelBuilder.Configurations.Add(new ResumeConfiguration());
             modelBuilder.Configurations.Add(new JobOfferConfiguration());
             modelBuilder.Configurations.Add(new JobConfiguration());
-
         }
         public override int SaveChanges()
         {

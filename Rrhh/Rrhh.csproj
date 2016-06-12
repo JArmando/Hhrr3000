@@ -110,6 +110,10 @@
     <Compile Include="Migrations\201606081234186_JobOffersRequiresJob.Designer.cs">
       <DependentUpon>201606081234186_JobOffersRequiresJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606112140196_IncludeDepartmentInJob.cs" />
+    <Compile Include="Migrations\201606112140196_IncludeDepartmentInJob.Designer.cs">
+      <DependentUpon>201606112140196_IncludeDepartmentInJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicCompetence.cs" />
     <Compile Include="Models\Competence.cs" />
@@ -176,12 +180,6 @@
     </Compile>
     <Compile Include="Views\Shared\BaseView.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Candidates\ListCandidates.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Candidates\ListCandidates.Designer.cs">
-      <DependentUpon>ListCandidates.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Candidates\NewCandidateView.cs">
       <SubType>Form</SubType>
@@ -270,6 +268,9 @@
     <EmbeddedResource Include="Migrations\201606081234186_JobOffersRequiresJob.resx">
       <DependentUpon>201606081234186_JobOffersRequiresJob.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606112140196_IncludeDepartmentInJob.resx">
+      <DependentUpon>201606112140196_IncludeDepartmentInJob.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -284,9 +285,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Candidates\HireCandidateView.resx">
       <DependentUpon>HireCandidateView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Candidates\ListCandidates.resx">
-      <DependentUpon>ListCandidates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Candidates\NewCandidateView.resx">
       <DependentUpon>NewCandidateView.cs</DependentUpon>

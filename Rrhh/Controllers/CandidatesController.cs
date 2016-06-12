@@ -13,7 +13,7 @@ namespace Rrhh.Controllers
 
         public CandidatesController(RrhhContext context) : base(context, context.Candidates)
         {
-            Presenter = new CandidatesPresenter(context.Candidates.Active());
+            Presenter = new CandidatesPresenter(Dbset.Active());
         }
 
         public Candidate New(string firstName, string lastName, string governmentIssuedId, string email,
@@ -80,12 +80,16 @@ namespace Rrhh.Controllers
             return new CandidatesController(dataContext).Hire(candidate, startsOn);
         }
 
-        public IEnumerable<PresentedCandidate> Filter(string searchParam)
+        public IEnumerable<PresentedCandidate> Filter(string s)
         {
             var result = Context.Candidates.Active().Where(x =>
-              x.Resume.Competences.Any(c => c.Description.Contains(searchParam)) ||
-              x.JobOfferAspiration.Job.Name.Contains(searchParam) ||
-              x.JobOfferAspiration.Job.Description.Contains(searchParam)
+                x.FirstName.Contains(s) ||
+                x.LastName.Contains(s) ||
+                x.Phone.Contains(s) ||
+                x.GovernmentIssuedId.Contains(s) ||
+                x.Resume.Competences.Any(c => c.Description.Contains(s)) ||
+                x.JobOfferAspiration.Job.Name.Contains(s) ||
+                x.JobOfferAspiration.Job.Description.Contains(s)
             );
             return new CandidatesPresenter(result).Models as IEnumerable<PresentedCandidate>;
         }

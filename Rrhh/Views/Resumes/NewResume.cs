@@ -46,7 +46,7 @@ namespace Rrhh.Views.Resumes
         private void RefreshData()
         {
             competencesGrid.DataSource = new BindingSource {DataSource = Resume.Competences};
-            languagesGrid.DataSource = Resume.Languages;
+            languagesGrid.DataSource = new BindingSource { DataSource = Resume.Languages};
         }
 
         private void AddLangBtn_Click(object sender, EventArgs e)

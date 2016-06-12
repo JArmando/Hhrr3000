@@ -35,7 +35,7 @@ namespace Rrhh.Views.Languages
         {
             return () =>
             {
-                var view = new NewLanguage(ViewContext);
+                var view = new NewLanguage();
                 view.ShowDialog();
                 return view.Model;
             };

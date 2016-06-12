@@ -44,6 +44,7 @@
             this.Email = new System.Windows.Forms.Label();
             this.DepartmentsCmbBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.selectJobOfferBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SalaryTxtBox
@@ -83,7 +84,7 @@
             // 
             this.AttachResumeBtn.Location = new System.Drawing.Point(261, 12);
             this.AttachResumeBtn.Name = "AttachResumeBtn";
-            this.AttachResumeBtn.Size = new System.Drawing.Size(203, 139);
+            this.AttachResumeBtn.Size = new System.Drawing.Size(203, 63);
             this.AttachResumeBtn.TabIndex = 23;
             this.AttachResumeBtn.Text = "Attach Resume";
             this.AttachResumeBtn.UseVisualStyleBackColor = true;
@@ -179,11 +180,22 @@
             this.label5.TabIndex = 29;
             this.label5.Text = "Department";
             // 
+            // selectJobOfferBtn
+            // 
+            this.selectJobOfferBtn.Location = new System.Drawing.Point(261, 100);
+            this.selectJobOfferBtn.Name = "selectJobOfferBtn";
+            this.selectJobOfferBtn.Size = new System.Drawing.Size(203, 72);
+            this.selectJobOfferBtn.TabIndex = 30;
+            this.selectJobOfferBtn.Text = "Select Job offer aspiration";
+            this.selectJobOfferBtn.UseVisualStyleBackColor = true;
+            this.selectJobOfferBtn.Click += new System.EventHandler(this.selectJobOfferBtn_Click);
+            // 
             // NewEmployeeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 352);
+            this.ClientSize = new System.Drawing.Size(486, 260);
+            this.Controls.Add(this.selectJobOfferBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.DepartmentsCmbBox);
             this.Controls.Add(this.SalaryTxtBox);
@@ -225,5 +237,6 @@
         private System.Windows.Forms.Label Email;
         private System.Windows.Forms.ComboBox DepartmentsCmbBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button selectJobOfferBtn;
     }
 }

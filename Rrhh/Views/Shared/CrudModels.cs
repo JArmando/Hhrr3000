@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Rrhh.Models;
 using Rrhh.Presenters;
@@ -8,15 +9,17 @@ namespace Rrhh.Views.Shared
 {
     public partial class CrudModels : BaseView
     {
-        private readonly BindingSource _bindingSource;
+        private BindingSource _bindingSource;
+        private Func<string, IEnumerable<PresentedModel>> Filter { get; }
         private readonly CrudViews _crudViews;
 
-        public CrudModels(ViewContext viewContext, BindingSource source, CrudViews crudViews )
+        public CrudModels(ViewContext viewContext, BindingSource source, CrudViews crudViews, Func<string, IEnumerable<PresentedModel>> filter  )
         {
             InitializeComponent();
             _crudViews = crudViews;
             ViewContext = viewContext;
             _bindingSource = source;
+            Filter = filter;
             LoadData();
         }
 
@@ -75,5 +78,18 @@ namespace Rrhh.Views.Shared
             }
 
         }
+
+        private void SearchBtn_Click(object sender, EventArgs e)
+        {
+            if (Filter != null)
+            {
+                _bindingSource = new BindingSource {DataSource = Filter(SearchTxtBox.Text)};
+                LoadData();
+            }
+            else
+            {
+                ViewContext.AddErrors("Filter not available");
+            }
+    }
     }
 }
